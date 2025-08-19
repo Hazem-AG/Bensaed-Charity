@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bensaid charitable foundation</title>
+    <link rel="icon" type="image/png" href="/LOGO.ico" width="1000px" height="1000px">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/Style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+</head>
+<body class="bg-gray-50">
+
+    <!-- ============================================ -->
+    <!--                  الهيدر                     -->
+    <!-- ============================================ -->
+    <header id="header" class="fixed w-full top-0 z-50 rounded-b-2xl overflow-hidden" >
+
+  <!-- الخط الديكوري -->
+  <div class="h-5" style="background-color: #0ea9b6;"></div>
+
+  <!-- الناف بار -->
+  <nav id="navbar" class="w-full transition-all duration-500 bg-white/80 backdrop-blur-sm shadow-md">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between w-full">
+      
+      <!-- اللوجو -->
+      <a href="#" class="flex items-center shrink-0">
+        <img src="/LOGO.svg" alt="شعار مؤسسة بنساعد" class="max-h-[120px] w-auto object-contain">
+      </a>
+
+      <!-- القائمة -->
+      <div class="hidden lg:flex flex-1 justify-center space-x-8 rtl:space-x-reverse font-semibold text-gray-700 transition-colors">
+        <a href="#about" class="nav-link hover:text-primary">عن المؤسسة</a>
+        <a href="#achievements" class="nav-link hover:text-primary">الإنجازات</a>
+        <a href="#campaigns" class="nav-link hover:text-primary">الحملات</a>
+        <a href="#projects" class="nav-link hover:text-primary">المشاريع</a>
+        <a href="#stats" class="nav-link hover:text-primary">الإحصائيات</a>
+        <a href="#team" class="nav-link hover:text-primary">فريقنا</a>
+        <a href="#contact" class="nav-link hover:text-primary">تواصل معنا</a>
+      </div>
+
+      <!-- زر التبرع -->
+      <a href="#donate" class="hidden lg:block bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all mx-auto">
+        تبرع الآن
+      </a>
+
+      <!-- زر قائمة الموبايل -->
+      <button id="mobile-menu-button" class="lg:hidden text-gray-700">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- قائمة الموبايل -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 flex flex-col space-y-3 backdrop-blur-sm bg-gray-800/90 text-white rounded-lg shadow-md p-4">
+      <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">عن المؤسسة</a>
+      <a href="#achievements" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الإنجازات</a>
+      <a href="#campaigns" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الحملات</a>
+      <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">المشاريع</a>
+      <a href="#stats" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الإحصائيات</a>
+      <a href="#team" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">فريقنا</a>
+      <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">تواصل معنا</a>
+      <a href="#donate" class="block bg-primary text-white text-center mt-2 px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all">تبرع الآن</a>
+    </div>
+  </nav>
+</header>
+
+    <main class="pt-20">
+        <!-- ============================================ -->
+        <!--                  القسم الرئيسي               -->
+        <!-- ============================================ -->
+        <section id="home" class="relative h-[90vh] flex items-center justify-center text-white text-center overflow-hidden !pt-0 !mt-0">
+    <!-- خلفية شفافة -->
+    <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
+
+    <!-- السلايدر -->
+    <div id="hero-slider" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
+      <img src="/1.jpg" alt="صورة 1" class="w-full h-full object-cover flex-shrink-0">
+      <img src="/2.png" alt="صورة 2" class="w-full h-full object-cover flex-shrink-0">
+      <img src="/3.png" alt="صورة 3" class="w-full h-full object-cover flex-shrink-0">
+    </div>
+
+    <!-- النص -->
+    <div class="relative z-20 p-6 pt-24">
+  <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"></h1>
+  <p id="hero-subtitle" class="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-md"></p>
+  <a href="#donate" class="mt-8 inline-block bg-primary text-white px-10 py-3 rounded-full font-bold text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105">
+    ساهم معنا
+  </a>
+</div>
+  </section>
+
+
+        <!-- ============================================ -->
+        <!--                  عن المؤسسة                  -->
+        <!-- ============================================ -->
+        <section id="about" class="py-20 bg-gray-50 bg-opacity-20">
+  <!-- اللوجو في النص -->
+  <div class="flex justify-center mb-10">
+    <img src="/LOGO.svg" alt="شعار مؤسسة بنساعد"
+         class="max-h-[350px] w-auto object-contain">
+  </div>
+
+  <!-- الكارت -->
+  <div class="container mx-auto px-6">
+    <div class="bg-white bg-opacity-95 rounded-2xl shadow-lg p-10 text-center">
+      <h2 class="section-title text-gray-800 text-3xl md:text-4xl font-bold mb-6">
+        عن المؤسسة
+      </h2>
+      <p class="section-subtitle text-lg md:text-xl text-gray-600 mb-10">مؤسسة بنساعد للأعمال الخيرية هي مؤسسة خيرية غير هادفة للربح، مسجلة رسميًا تحت مظلة مديرية التضامن الاجتماعي بمحافظة القليوبية برقم قيد 2539 لسنة 2019. تلتزم المؤسسة بتمكين الأسر الأكثر احتياجًا عبر برامج تنموية مستدامة تُعزز العدالة الاجتماعية وتضمن حصول كل فرد على فرص عادلة لتحقيق حياة كريمة.
+
+
+      </p>
+
+      <!-- الأيقونات والأهداف -->
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="p-6">
+          <i data-lucide="gem" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">رؤيتنا</h3>
+          <p class="text-gray-600">
+أن نكون روًادًا في تحقيق التنمية المجتمعية الشاملة من خلال نماذج عمل مبتكرة تواكب أهداف التنمية المستدامة ، مع التركيز على محاور: التعليم، الصحة، التمكين الاقتصادي، والحماية الاجتماعية.
+
+          </p>
+        </div>
+        <div class="p-6">
+          <i data-lucide="target" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">رسالتنا</h3>
+          <p class="text-gray-600">
+تصميم وتنفيذ مشاريع تنموية قابلة للقياس والتوسع.
+
+بناء شراكات استراتيجية مع الجهات الحكومية (كمديرية التضامن الاجتماعي) والقطاع الخاص والمجتمع المدني.
+
+تمكين المستفيدين عبر برامج تُعزز الاستقلالية وتقلل الاعتماد على المساعدات العاجلة.
+
+          </p>
+        </div>
+        <div class="p-6">
+          <i data-lucide="heart-handshake" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">قيمنا</h3>
+          <p class="text-gray-600"> نؤمن بالعدالة والشفافية في تمكين الأسر الأكثر احتياجًا، ونحرص على تقديم حلول تنموية مستدامة تحفظ كرامة الإنسان، من خلال التعاون البنّاء مع الجهات الحكومية والمجتمعية، مع الابتكار الدائم في أساليب عملنا لضمان أكبر أثر تنموي.        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- قسم المساهمات على الخريطة -->
+<section id="map-section" class="py-20 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-6 text-gray-800">أماكن مساهماتنا في مصر</h2>
+    <p class="text-gray-600 mb-8">نفخر بتقديم مساعداتنا في هذه المناطق عبر مختلف مشروعات المؤسسة.</p>
+    
+    <!-- الخريطة -->
+<div id="egypt-map" style="height:600px; border-radius:20px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.15);"></div>
+  </div>
+</section>
+
+
+        <!-- ============================================ -->
+        <!--                  الإنجازات                  -->
+        <!-- ============================================ -->
+        <section id="achievements" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-gray-800">أبرز إنجازاتنا</h2>
+                <p class="section-subtitle">بفضل دعمكم، تمكنا من تحقيق العديد من الإنجازات التي لمست حياة الآلاف.</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- بطاقة إنجاز -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="wallet" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">مساعدات مالية</h3>
+                        <p class="text-sm text-gray-500 mt-2">دعم أكثر من 3900 أسرة</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="stethoscope" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">مساعدات علاجية</h3>
+                        <p class="text-sm text-gray-500 mt-2">علاج أكثر من 792 حالة</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="book-heart" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">تجهيز الفتيات</h3>
+                        <p class="text-sm text-gray-500 mt-2">تجهيز أكثر من 113 فتاة</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="utensils-crossed" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">إطعام الطعام</h3>
+                        <p class="text-sm text-gray-500 mt-2">توزيع 8948+ وجبة</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="droplets" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">سقيا الماء</h3>
+                        <p class="text-sm text-gray-500 mt-2">توصيل وصالات المياه لـ 284 منزل</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="briefcase" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">مشاريع تنموية</h3>
+                        <p class="text-sm text-gray-500 mt-2">تمكين 49+ أسرة بمشاريع</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">شنط غذائية</h3>
+                        <p class="text-sm text-gray-500 mt-2">توزيع 11232+ شنطة</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-2xl hover:-translate-y-2 transition-all">
+                        <i data-lucide="graduation-cap" class="w-12 h-12 mx-auto text-primary mb-4"></i>
+                        <h3 class="font-bold text-lg">دعم التعليم</h3>
+                        <p class="text-sm text-gray-500 mt-2">دعم 1125+ طالب</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!--                   الحملات                   -->
+        <!-- ============================================ -->
+        <section id="campaigns" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-gray-800">حملاتنا الموسمية</h2>
+                <p class="section-subtitle">نطلق حملاتنا كل عام لتلبية الاحتياجات الموسمية ومضاعفة الأجر.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/افطار صائم.jpg" class="w-full h-48 object-cover" alt="حملة رمضان">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة افطار صائم</h3>
+                            <p class="text-gray-600 mb-4">نوفر وجبات الإفطار يوميه للأسر المحتاجة طول شهر رمضان</p>
+                                                        <p class="text-gray-600 mb-4" >تم عمل عدد 7150 وجبه افطار     </p>
+                            <canvas id="ramadanChart1"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/شنط غذائيه.png" class="w-full h-48 object-cover" alt="حملة رمضان">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة شنطه خير رمضان</h3>
+                            <p class="text-gray-600 mb-4">نوفرالشنط الغذائية للأسر المحتاجة طول شهر رمضان</p>
+                                                        <p class="text-gray-600 mb-4">تم توفير عدد 7752 شنطه غذائيه     </p>
+                            <canvas id="ramadanChart2"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/زكاة فطر.png" class="w-full h-48 object-cover" alt="حملة زكاة الفطر">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة زكاة الفطر</h3>
+                            <p class="text-gray-600 mb-4">نصل بزكاتكم إلى مستحقيها في الوقت الشرعي.</p>
+                                                        <p class="text-gray-600 mb-4">تم توفير عدد 780 شنطه زكاة فطر</p>
+                            <canvas id="zakatChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/حمله الاضاحي.png" class="w-full h-48 object-cover" alt="حملة الأضاحي">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة الأضاحي</h3>
+                            <p class="text-gray-600 mb-4">نوزع لحوم الأضاحي لإدخال الفرحة في قلوبهم.</p>
+                            <p class="text-gray-600 mb-4">تم توزيع عدد 2515 كيلو لحمه تقرياً للأسر المحتاجه </p>
+                            <canvas id="adhaChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/العشرة من ذو الحجه.png" class="w-full h-48 object-cover" alt="حملة الأضاحي">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة العشرة الاوائل من ذو الحجه</h3>
+                            <p class="text-gray-600 mb-4">توزيع وجبات و مساعدات ماليه علي الاسر و القري المحتاجه طول فترة العشرة من ذو الحجه</p>
+                                                        <p class="text-gray-600 mb-4">تم توزيع عدد 1775 وجبه و مساعدات ماليه علي الاسر المحتاجه</p>
+                            <canvas id="adhaChart2"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/حمله المدارس.png" class="w-full h-48 object-cover" alt="حملة المدارس">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة المدارس</h3>
+                            <p class="text-gray-600 mb-4">نوفر المستلزمات المدرسية للطلاب غير القادرين.</p>
+                    <p class="text-gray-600 mb-4">تم دعم عدد 1125 طالب  بشراء مستلزامت و دفع مصاريف دراسيه    </p>
+                            <canvas id="schoolChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- بطاقة حملة -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                        <img src="/حمله شتاء.png" class="w-full h-48 object-cover" alt="حملة شتاء دافئ">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حملة شتاء دافئ</h3>
+                            <p class="text-gray-600 mb-4">نقدم البطاطين والملابس الشتوية لمواجهة البرد.</p>
+                                                        <p class="text-gray-600 mb-4">تم تقدم الدعم اللازم من بطاطين و اسقف و ملابس لعدد 1443 اسره مستحقه
+                                                        </p>
+                            <canvas id="winterChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================================ -->
+        <!--               المشاريع والأنشطة              -->
+        <!-- ============================================ -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title text-gray-800">المشاريع والأنشطة</h2>
+                <p class="section-subtitle">مبادراتنا مستمرة على مدار العام لإحداث تغيير حقيقي ومستدام.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="/قافله طبيه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="قوافل طبية">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">القوافل الطبية</h3>
+                            <p class="text-gray-600">تنظيم قوافل طبية مجانية في القرى الأكثر احتياجًا.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="حفلات تحفيظ القرأن.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="حفلات تحفيظ القرآن">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">حفلات تحفيظ القرآن</h3>
+                            <p class="text-gray-600">تكريم وتشجيع حفظة كتاب الله من الأطفال والشباب.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="/دور الايتام.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="دعم دور الأيتام">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">دعم دور الأيتام</h3>
+                            <p class="text-gray-600">ندعم دور الأيتام بتوفير احتياجاتهم الأساسية والتعليمية، لنمنحهم مستقبلًا أفضل.    .</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="وصلات المياه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">محطات تحليه المياه</h3>
+                            <p class="text-gray-600">توفير مياه شرب نظيفة للأسر في المناطق النائية.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="زراعة النخيل.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">زراعة الناخيل</h3>
+                            <p class="text-gray-600">زراعة النخيل صدقة جارية وخير متجدد للأرض والإنسان.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                        <img src="تعمير المساجد.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">تعمير المساجد </h3>
+                            <p class="text-gray-600">نسعى لتعمير المساجد لتظل منارات للخير والعبادة..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!--                  الإحصائيات                  -->
+        <!-- ============================================ -->
+<section id="stats" class="py-20 text-white ">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="section-title">بالأرقام.. أثرنا يتحدث</h2>
+    <p class="section-subtitle !text-gray-100">أرقام نفخر بها، تعكس حجم الثقة التي تمنحوننا إياها.</p>
+    
+    <!-- الإحصائيات السريعة -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform">
+        <span class="counter-value text-4xl font-bold text-white" data-target="30383">0</span>+
+        <p class="text-lg mt-2">إجمالي المستفيدين</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform">
+        <span class="counter-value text-4xl font-bold text-white" data-target="250">0</span>+
+        <p class="text-lg mt-2">عدد المتطوعين</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform">
+        <span class="counter-value text-4xl font-bold text-white" data-target="60">0</span>+
+        <p class="text-lg mt-2">عدد الحملات</p>
+      </div>
+    </div>
+
+    <!-- الرسم البياني -->
+    <div class="mt-16 bg-white p-6 rounded-2xl shadow-2xl">
+      <h3 class="text-gray-800 text-xl font-bold mb-6">تطور عدد الحالات المستفيدة شهريًا</h3>
+      <canvas id="monthlyCasesChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!--      Roadmap Timeline         -->
+<!-- ============================= -->
+<section id="timeline" class="py-24  relative">
+  <div class="container mx-auto px-6">
+    <h2 class="text-center text-4xl font-extrabold text-gray-800 mb-4">مسيرة العطاء</h2>
+    <p class="text-center text-gray-600 mb-16">خطواتنا نحو مستقبل أفضل، عامًا بعد عام.</p>
+
+    <div class="relative">
+      <!-- الخط في النص -->
+      <div class="absolute top-0 left-1/2 w-1 bg-gradient-to-b from-primary to-purple-500 h-full transform -translate-x-1/2"></div>
+
+      <!-- 2019 -->
+      <div class="mb-16 flex justify-start w-full items-center">
+        <div class="w-1/2 pr-8 text-right">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-primary">الانطلاقة</h3>
+            <p class="mt-2 text-gray-700">أطلقت مؤسسة بنساعد أولى حملاتها الخيرية تحت عنوان شتاء دافئ، لتكون البداية في مد يد العون ورسم البسمة على وجوه المحتاجين.</p>
+          </div>
+        </div>
+        <div class="relative w-0">
+          <span class="absolute -left-6 top-1/2 w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2">
+            <span class="font-bold">2019</span>
+          </span>
+        </div>
+        <div class="w-1/2"></div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="mb-16 flex justify-end w-full items-center">
+        <div class="w-1/2"></div>
+        <div class="relative w-0">
+          <span class="absolute -left-6 top-1/2 w-12 h-12 bg-purple-600 text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2 z-20 ">
+            <span class="font-bold">2020</span>
+          </span>
+        </div>
+        <div class="w-1/2 pl-8 text-left">
+          <div class="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-lg">
+            <h3 class="font-bold text-2xl text-purple-600">التوسع والمشاركة المجتمعية</h3>
+            <p class="mt-2 text-gray-700"> بدأت المؤسسة في توسيع نشاطاتها والمشاركة في أكثر من حملة، كان أبرزها حملة رمضان التي أسهمت في تقديم دعم حقيقي للأسر المستحقة.</p>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- 2021 -->
+      <div class="mb-16 flex justify-start w-full items-center">
+        <div class="w-1/2 pr-8 text-right">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-primary">مشاريع حيوية وتأثير ملموس</h3>
+            <p class="mt-2 text-gray-700">   ارتفع عدد الحالات التي تخدمها المؤسسة، وتم تنفيذ محطة لتحلية المياه في قرية عرب شركس لتلبية احتياجات المجتمع المحلي.    .</p>
+          </div>
+        </div>
+        <div class="relative w-0">
+          <span class="absolute -left-6 top-1/2 w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2">
+            <span class="font-bold">2021</span>
+          </span>
+        </div>
+        <div class="w-1/2"></div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="mb-16 flex justify-end w-full items-center">
+        <div class="w-1/2"></div>
+        <div class="relative w-0">
+          <span class="absolute -right-6 top-1/2 w-12 h-12 bg-purple-600 text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2 z-20">
+            <span class="font-bold">2022</span>
+          </span>
+        </div>
+        <div class="w-1/2 pl-8 text-left">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-purple-600">مقراً أفضل وخدمات أوسع</h3>
+            <p class="mt-2 text-gray-700">تم نقل مقر المؤسسة إلى مكان أوسع وأفضل، مزود بالإمكانيات التي ساعدت على رفع مستوى المساعدات المقدمة للحالات المستحقة.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="mb-16 flex justify-start w-full items-center">
+        <div class="w-1/2 pr-8 text-right">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-primary">الوصول إلى القرى النائية</h3>
+            <p class="mt-2 text-gray-700">غطت المؤسسة عدداً أكبر من الأسر المحتاجة، ونظمت قوافل خيرية إلى القرى البعيدة لتقديم الدعم المباشر.</p>
+          </div>
+        </div>
+        <div class="relative w-0">
+          <span class="absolute -left-6 top-1/2 w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2 ">
+            <span class="font-bold">2023</span>
+          </span>
+        </div>
+        <div class="w-1/2"></div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="mb-16 flex justify-end w-full items-center">
+        <div class="w-1/2"></div>
+        <div class="relative w-0">
+          <span class="absolute -right-6 top-1/2 w-12 h-12 bg-purple-600 text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2 z-20">
+            <span class="font-bold">2024</span>
+          </span>
+        </div>
+        <div class="w-1/2 pl-8 text-left">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-purple-600">التعليم والدعم المستمر</h3>
+            <p class="mt-2 text-gray-700">ركزت المؤسسة على دعم الطلاب والتعليم بشكل عام، فكانت حملة المدارس من أبرز الحملات السنوية وأكثرها تأثيراً.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="mb-16 flex justify-start w-full items-center">
+        <div class="w-1/2 pr-8 text-right">
+          <div class="timeline-glass">
+            <h3 class="font-bold text-2xl text-primary">التوسع وتحقيق أعلى المساعدات</h3>
+            <p class="mt-2 text-gray-700">واصلت المؤسسة توسيع مشاريعها وأنشطتها، وحققت حملتي الأضاحي ورمضان أعلى مستويات المساعدات للأسر المحتاجة.</p>
+          </div>
+        </div>
+        <div class="relative w-0">
+          <span class="absolute -left-6 top-1/2 w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full shadow-md transform -translate-y-1/2">
+            <span class="font-bold">2025</span>
+          </span>
+        </div>
+        <div class="w-1/2"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+        
+          <!-- ============================ -->
+  <!--        مجلس الأمناء         -->
+  <!-- ============================ -->
+  <section id="trustees" class="py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="section-title text-white">مجلس الأمناء</h2>
+      <p class="section-subtitle text-white mb-10">العقول التي تقود رسالتنا وتبني رؤيتنا.</p>
+
+      <!-- السلايدر -->
+      <div class="swiper trustees-swiper relative">
+        <div class="swiper-wrapper">
+          <!-- عضو 1 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">المهندس أحمد الخطيب</h3>
+            <p class="text-[#0ea9b6] font-semibold">رئيس مجلس الأمناء</p>
+          </div>
+          <!-- عضو 2 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">المهندس محمود الخطيب</h3>
+            <p class="text-[#0ea9b6] font-semibold">أمين الصندوق</p>
+          </div>
+          <!-- عضو 3 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الرائد عاطف محمد الخطيب </h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 4 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذ عبدالرحمن مصطفي </h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 5 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذ حسن الغنام </h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 6 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذ احمد مطر</h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 7 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذ مصطفي ابوشمه</h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 8 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذ حسام حسن</h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+          <!-- عضو 9 -->
+          <div class="swiper-slide text-center">
+            <img src="girl.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#35343400]" alt="">
+            <h3 class="font-bold text-xl text-white">الاستاذه رشا الخطيب</h3>
+            <p class="text-[#0ea9b6] font-semibold">عضو مجلس الأمناء</p>
+          </div>
+        </div>
+
+        <!-- أزرار التنقل -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!--        فريق العمل           -->
+  <!-- ============================ -->
+  <section id="team" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="section-title text-gray-800">فريق العمل</h2>
+      <p class="section-subtitle mb-10">الفريق الذي يترجم الأفكار إلى إنجازات.</p>
+
+      <!-- السلايدر -->
+      <div class="swiper team-swiper relative">
+        <div class="swiper-wrapper">
+          <!-- موظف 1 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800">الاستاذ محمد ابراهيم </h3>
+            <p class="text-[#0ea9b6] font-semibold">المدير التنفيذي</p>
+          </div>
+          <!-- موظف 2 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800">الاستاذ أحمد محمود</h3>
+            <p class="text-[#0ea9b6] font-semibold">المراجع المالي</p>
+          </div>
+          <!-- موظف 3 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800"> الاستاذ احمد عمارة</h3>
+            <p class="text-[#0ea9b6] font-semibold"> المحاسب</p>
+          </div>
+          <!-- موظف 4 -->
+          <div class="swiper-slide text-center">
+            <img src="girl.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800"> الاستاذه رزان محمد</h3>
+            <p class="text-[#0ea9b6] font-semibold"> مسؤوله متابعة و ادارة الحالات</p>
+          </div>
+          <!-- موظف 5 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800">  الاستاذ حازم عمارة</h3>
+            <p class="text-[#0ea9b6] font-semibold"> مسؤول الاعمال الادارية</p>
+          </div>
+          <!-- موظف 6 -->
+          <div class="swiper-slide text-center">
+            <img src="man.svg" class="w-40 h-40 mx-auto rounded-full shadow-lg mb-4 bg-[#0ea9b6]" alt="">
+            <h3 class="font-bold text-xl text-gray-800"> الاستاذ مصطفي ابراهيم</h3>
+            <p class="text-[#0ea9b6] font-semibold"> المستكشف</p>
+          </div>
+        </div>
+
+        <!-- أزرار التنقل -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+       <!-- ============================================ -->
+<!--                  طرق التبرع                  -->
+<!-- ============================================ -->
+<section id="donate" class="py-20 bg-white">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="section-title text-white">تبرعك يصنع فرقًا</h2>
+    <p class="section-subtitle text-white">اختر الطريقة الأنسب لك للمساهمة في تغيير حياة الآلاف نحو الأفضل.</p>
+
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+      <!-- فودافون كاش -->
+      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <img src="/vodafone-svgrepo-com.svg" style="width: 100px; height: 100px;"  class="mx-auto mb-4 rounded-full" alt="فودافون كاش">
+        <h3 class="text-xl font-bold mb-2">فودافون كاش</h3>
+        <p id="vodafone" class="text-gray-600 font-mono"> ----------- </p>
+        <button onclick="copyText('vodafone')" class="mt-3 bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          نسخ الرقم
+        </button>
+      </div>
+
+      <!-- إنستاباي -->
+      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <img src="/انستا باي.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="إنستاباي">
+        <h3 class="text-xl font-bold mb-2">إنستاباي</h3>
+        <p id="instapay" class="text-gray-600 font-mono"> ----------- </p>
+        <button onclick="copyText('instapay')" class="mt-3 bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          نسخ الحساب
+        </button>
+      </div>
+
+      <!-- مندوب للمنزل -->
+      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <img src="مندوب.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="كاش مباشر">
+        <h3 class="text-xl font-bold mb-2">مندوب للمنزل</h3>
+        <p id="home" class="text-gray-600"> -----------  </p>
+        <button onclick="copyText('home')" class="mt-3 bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">
+          نسخ النص
+        </button>
+      </div>
+    </div>
+
+<a href="#" 
+   class="mt-12 inline-block bg-gray-400 text-white px-12 py-4 rounded-full font-bold text-xl cursor-not-allowed opacity-70 shadow-lg">
+   التبرع أونلاين متوقف حالياً
+</a>
+
+  </div>
+</section>
+
+        <!-- ============================================ -->
+        <!--                  نماذج التواصل                -->
+        <!-- ============================================ -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-center text-gray-800">كن جزءًا من قصتنا</h2>
+                <p class="section-subtitle text-center">سواء كنت متبرعًا، متطوعًا، أو تحتاج للمساعدة، نرحب بك دائمًا.</p>
+                <div class="grid lg:grid-cols-3 gap-8 text-center">
+                    <!-- رابط المتطوعين -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <i data-lucide="users" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">انضم كمتطوع</h3>
+                        <p class="text-gray-600 mb-6">كن جزءًا من فريقنا وساهم بوقتك ومهاراتك في خدمة المجتمع.</p>
+                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">سجل الآن</a>
+                    </div>
+                    <!-- رابط الحالات -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <i data-lucide="file-text" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">طلب مساعدة</h3>
+                        <p class="text-gray-600 mb-6">إذا كنت تحتاج إلى مساعدة، يمكنك تقديم طلبك ليتم دراسته.</p>
+                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">قدم طلبك</a>
+                    </div>
+                     <!-- رابط المتبرعين -->
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <i data-lucide="gem" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">كن شريكًا في الخير</h3>
+                        <p class="text-gray-600 mb-6">انضم إلى قائمتنا البريدية لتصلك آخر أخبارنا وحملاتنا أولاً بأول.</p>
+                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">اشترك الآن</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
+      شركاؤنا في العطاء
+    </h2>
+    <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+      نفتخر بشراكتنا مع هذه المؤسسات والشركات التي تدعمنا بشكل دوري لتحقيق رسالتنا.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+      <!-- مثال شعار شركة -->
+      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105">
+        <img src="logo1.png" alt="شركة 1" class="mx-auto h-16 object-contain">
+      </div>
+      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105">
+        <img src="logo2.png" alt="شركة 2" class="mx-auto h-16 object-contain">
+      </div>
+      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105">
+        <img src="logo3.png" alt="شركة 3" class="mx-auto h-16 object-contain">
+      </div>
+      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105">
+        <img src="logo4.png" alt="شركة 4" class="mx-auto h-16 object-contain">
+      </div>
+      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105">
+        <img src="logo5.png" alt="شركة 5" class="mx-auto h-16 object-contain">
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="bg-[#353434] backdrop-blur-lg text-white shadow-lg rounded-t-2xl">
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- شعار المؤسسة -->
+      <div class="flex flex-col items-start">
+        <a href="#" class="flex items-center mb-4">
+          <img src="/logo 2.svg" alt="شعار مؤسسة بنساعد" class="max-h-[160px] w-auto object-contain">
+        </a>
+        <p class="text-gray-300 text-sm">نعمل بشغف لتحقيق التنمية المستدامة وتمكين كل فرد في مجتمعنا. شكرًا لكونك جزءًا من رحلتنا.</p>
+      </div>
+
+      <!-- روابط المؤسسة -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="#about" class="hover:text-[#0ea9b6] transition">عن المؤسسة</a></li>
+          <li><a href="#achievements" class="hover:text-[#0ea9b6] transition">الإنجازات</a></li>
+          <li><a href="#campaigns" class="hover:text-[#0ea9b6] transition">الحملات</a></li>
+          <li><a href="#contact" class="hover:text-[#0ea9b6] transition">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <!-- خدمات أو منتجات -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">خدماتنا</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="#" class="hover:text-[#0ea9b6] transition">مساعدات مالية</a></li>
+          <li><a href="#" class="hover:text-[#0ea9b6] transition">مساعدات علاجية</a></li>
+          <li><a href="#" class="hover:text-[#0ea9b6] transition">مشروعات البنية التحتية</a></li>
+          <li><a href="#" class="hover:text-[#0ea9b6] transition">تجهيز الأسر والفتيات</a></li>
+        </ul>
+      </div>
+
+      <!-- تواصل اجتماعي -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li class="flex items-center"><i data-lucide="phone" class="w-5 h-5 mr-2 rtl:ml-2"></i> 01009640501 - 0242159007 </li>
+          <li class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-2 rtl:ml-2"></i> bensaed.charity.2019@gmail.com</li>
+<li class="flex items-center">
+  <i data-lucide="map-pin" class="w-5 h-5 mr-2 rtl:ml-2"></i>
+  <a href="https://maps.app.goo.gl/j4BtzxA5rnv9vZB78" 
+     target="_blank" 
+     class="hover:text-[#0ea9b6] transition">
+    ٨ شارع محمد احمد الشوربي - ارض الجمعية - قليوب البد 13613
+  </a>
+</li>        </ul>
+        <div class="flex space-x-4 rtl:space-x-reverse mt-4">
+          <a href="https://www.facebook.com/bans3edeg" target="_blank" class="text-gray-300 hover:text-[#0ea9b6] transition"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+          <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="text-gray-300 hover:text-[#0ea9b6] transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+<a href="https://wa.me/01009640501" target="_blank" class="text-gray-300 hover:text-[#0ea9b6] transition">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+  </svg>
+</a>
+    </div>
+      </div>
+    </div>
+
+    <!-- حقوق النشر -->
+    <div class="mt-12 pt-8 border-t border-white/20 text-center text-gray-400 text-sm space-y-1">
+  <p>&copy; 2024 مؤسسة بنساعد. جميع الحقوق محفوظة للمؤسسة.</p>
+<p class="text-white font-semibold hover:text-yellow-400 transition">تصميم وتطوير : حازم عمارة</p>
+</div>
+  </div>
+</footer>
+
+
+  <script src="/JS.js"></script>
+  <script src="/ـJS2.js"></script>
+    <script src="/JS3.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+
+ html, body {
+  margin: 0;
+  padding: 0;
+}
+ body {
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+    background-repeat: repeat;       /* تكرار التكستشر */
+    background-size: auto;           /* الحجم الطبيعي للتكستشر */
+    background-attachment: fixed;    /* تثبيت الخلفية أثناء التمرير */
+}
+
+        .bg-primary { background-color: #0ea9b6; }
+        .text-primary { color: #0ea9b6; }
+        .border-primary { border-color: #0ea9b6; }
+        .counter-value {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        #home img {
+  transition: opacity 0.8s ease-in-out;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(25px) scale(0.95);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fade-delay {
+  transition-delay: 0.3s; /* تأخير بسيط للساب تايتل */
+}
+
+/* مؤشر الكتابة يلمع */
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #0ea9b6; }
+}
+
+#home {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+main {
+  padding-top: 0 !important;
+}
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-in-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.opacity-0 {
+  opacity: 0;
+}
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        
+        /* === تحسينات شريط التنقل === */
+        header {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        header.scrolled {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.171), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .nav-link {
+            position: relative;
+            padding-bottom: 8px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0ea9b6;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .nav-link.active {
+            color: #0ea9b6;
+        }
+        #stats{
+            background-color: rgb(53, 52, 52);
+        }
+        #donate{
+            background-color: rgb(53, 52, 52);
+        }
+        
+        /* الحالة العادية */
+        #nav-decor {
+  transition: all 0.8s ease-out;
+}
+#nav-decor.visible {
+  width: 100%;
+  opacity: 1;
+}
+
+
+#navbar {
+  background: transparent;
+}
+#navbar .nav-link {
+  color: rgb(255, 255, 255);
+}
+#mobile-menu{
+    color: #ffffff;
+}
+#navbar2{
+    background: rgb(26, 143, 151);
+}
+/* بعد الاسكرول */
+#navbar.scrolled {
+  background: rgb(53, 52, 52);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#footer2{
+      background: rgb(53, 52, 52);
+
+}
+#navbar.scrolled .nav-link {
+  color: #ffffff;
+}
+#navbar.scrolled #mobile-menu-button {
+  color: #ffffff;
+}
+.section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      color: #555;
+      font-size: 1.1rem;
+    }
+    
+ /* أيقونات البن */
+  .custom-pin {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* جلو دائري عند الـ hover */
+.custom-pin:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(14, 169, 182, 0.6));
+}
+  /* Popup */
+  .leaflet-popup-content-wrapper {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 8px;
+  }
+  .leaflet-popup-tip {
+    background: #fff;
+  }
+
+  /* زووم كنترول */
+  .leaflet-control-zoom a {
+    background: #fff !important;
+    border-radius: 50% !important;
+    margin: 3px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+  }
+  .leaflet-control-zoom a:hover {
+    background: #0ea9b6 !important;
+    color: #fff !important;
+    transform: scale(1.1);
+  }
+
+  /* أنيميشن Bounce */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-8px); }
+  }
+  .bounce {
+    animation: bounce 1s;
+  }
+
+
+
+#timeline {
+  position: relative;
+  padding: 6rem 1rem;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(14, 168, 182, 0.651) 0%, rgba(14,169,182,0.1) 45%, transparent 80%),
+    radial-gradient(circle at 70% 60%, rgba(141, 68, 173, 0.651) 0%, rgba(142,68,173,0.1) 45%, transparent 80%),
+    linear-gradient(to bottom, #ffffff, #ffffff);
+  overflow: hidden;
+}
+
+
+/* بطاقة زجاجية ناعمة */
+.timeline-glass {
+  position: relative;
+  padding: 1.5rem;                 /* p-6 */
+  border-radius: 1rem;             /* rounded-2xl */
+  background: rgba(255,255,255,0.35);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  overflow: hidden;
+}
+
+/* لمعة خفيفة من الأعلى تعمّق تأثير الزجاج */
+.timeline-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.20) 35%,
+    rgba(255,255,255,0.06) 65%,
+    rgba(255,255,255,0.00)
+  );
+  pointer-events: none;
+}
+
+/* طبقة Noise اختيارية (لو حابب تزيد التشبير) */
+.timeline-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.25;                  /* قلّل/زود حسب ما تحب */
+  pointer-events: none;
+}
+
+/* ألوان العناوين والنصوص داخل الكرت (اختياري للتناسق) */
+.timeline-glass h3 {
+  margin: 0 0 0.25rem;
+  font-weight: 800;
+  font-size: 1.5rem;               /* text-2xl */
+  color: #0ea9b6;                  /* primary */
+}
+
+.timeline-glass p {
+  margin: 0.5rem 0 0;
+  color: #374151;                  /* text-gray-700 */
+  line-height: 1.7;
+}
+
+/* تفاعل بسيط عند الهوفر */
+.timeline-glass:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+#trustees{
+                background-color: #353434;
+
+}
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #1196be; /* لون أصفر ذهبي مشابه للصورة */
+}
+
+footer h3 {
+  color: #ffffff;
+}
