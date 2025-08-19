@@ -209,9 +209,9 @@ if (monthlyCasesChartCtx) {
 
     // === كود السلايدر للصور في الهوم مع انتقال سلس ===
     const slides = [
-        "/1.jpg",
-        "/2.png",
-        "/3.png"
+        "1.jpg",
+        "2.png",
+        "3.png"
     ];
     let currentSlide = 0;
     const homeImg = document.querySelector("#home img");
