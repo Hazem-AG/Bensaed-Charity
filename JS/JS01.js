@@ -11,7 +11,7 @@
 
     // عدادات متحركة
     const counters = document.querySelectorAll('.counter-value');
-    const speed = 200; 
+    const speed = 100; 
 
     const animateCounter = (counter) => {
         const target = +counter.getAttribute('data-target');
@@ -85,20 +85,20 @@
         }
     };
 
-    createChart('ramadanChart1', [0, 1000, 1300, 1420, 1488, 1566]);
-    createChart('ramadanChart2', [0, 560, 780, 1897, 1984, 2531]);
-    createChart('zakatChart', [0, 100, 150, 160, 170, 200]);
-    createChart('adhaChart', [0, 132, 170, 240, 250, 525]);
-        createChart('adhaChart2', [0, 0, 0, 0, 525, 1250]);
-    createChart('schoolChart', [0, 30, 50, 70, 133, 209]);
+    createChart('ramadanChart1', [250, 1000, 1300, 1420, 1488, 1566]);
+    createChart('ramadanChart2', [150, 560, 780, 1897, 1984, 2531]);
+    createChart('zakatChart', [50, 100, 150, 160, 170, 200]);
+    createChart('adhaChart', [60, 132, 170, 240, 250, 525]);
+        createChart('adhaChart2', [150, 250, 350, 450, 525, 1250]);
+    createChart('schoolChart', [30, 30, 50, 70, 133, 209]);
     createChart('winterChart', [102, 153, 204, 304, 320, 360]);
     
 const monthlyCasesChartCtx = document.getElementById('monthlyCasesChart')?.getContext('2d');
 if (monthlyCasesChartCtx) {
-    // تدرج بنفس ألوان الموقع
+    // تدرج شفاف "زجاجي"
     const gradient = monthlyCasesChartCtx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, '#0ea9b6'); // تركواز فاتح
-    gradient.addColorStop(1, '#0c8a96'); // تركواز غامق
+    gradient.addColorStop(0, 'rgba(14, 169, 182, 0.7)'); // تركواز فاتح شفاف
+    gradient.addColorStop(1, 'rgba(12, 138, 150, 0.5)'); // تركواز غامق شفاف
 
     new Chart(monthlyCasesChartCtx, {
         type: 'bar',
@@ -108,10 +108,17 @@ if (monthlyCasesChartCtx) {
                 label: 'متوسط عدد المستفيدين شهريًا',
                 data: [150, 220, 350, 500, 700, 950],
                 backgroundColor: gradient,
-                borderRadius: 12,
+                borderRadius: 0,
                 borderSkipped: false,
-                hoverBackgroundColor: '#0ea9b6', 
-                hoverBorderColor: '#0c8a96'
+                borderWidth: 0,
+                hoverBackgroundColor: 'rgba(14, 169, 182, 0.9)', 
+                hoverBorderColor: 'rgba(12, 138, 150, 0.9)',
+                barPercentage: 0.6,
+                categoryPercentage: 0.5,
+                shadowOffsetX: 0,
+                shadowOffsetY: 4,
+                shadowBlur: 10,
+                shadowColor: 'rgba(0,0,0,0.15)'
             }]
         },
         options: {
@@ -120,7 +127,7 @@ if (monthlyCasesChartCtx) {
                 legend: {
                     display: true,
                     labels: {
-                        color: '#0c8a96',
+                        color: 'rgba(12, 138, 150, 0.9)',
                         font: {
                             size: 14,
                             family: 'Cairo, sans-serif',
@@ -130,11 +137,11 @@ if (monthlyCasesChartCtx) {
                     }
                 },
                 tooltip: {
-                    backgroundColor: '#0c8a96',
+                    backgroundColor: 'rgba(12, 138, 150, 0.85)',
                     titleColor: '#fff',
                     bodyColor: '#fff',
                     padding: 12,
-                    cornerRadius: 10,
+                    cornerRadius: 12,
                     titleFont: { size: 14, weight: 'bold' },
                     bodyFont: { size: 13 }
                 }
@@ -147,14 +154,14 @@ if (monthlyCasesChartCtx) {
                         borderDash: [6, 4]
                     },
                     ticks: { 
-                        color: '#444',
+                        color: 'rgba(0,0,0,0.7)',
                         font: { size: 13, weight: '500' }
                     }
                 },
                 x: {
                     grid: { display: false },
                     ticks: { 
-                        color: '#444',
+                        color: 'rgba(0,0,0,0.7)',
                         font: { size: 13, weight: '500' }
                     }
                 }
@@ -166,6 +173,7 @@ if (monthlyCasesChartCtx) {
         }
     });
 }
+
 
 
     // === كود تحسينات شريط التنقل ===
@@ -182,7 +190,7 @@ if (monthlyCasesChartCtx) {
         }
     });
 
-    // 2. تمييز الرابط النشط عند التمرير
+    // 2. تمييز الرابط  عند التمرير
     const observerOptions2 = {
         root: null,
         rootMargin: '0px',
@@ -209,9 +217,9 @@ if (monthlyCasesChartCtx) {
 
     // === كود السلايدر للصور في الهوم مع انتقال سلس ===
     const slides = [
-        "1.jpg",
-        "2.png",
-        "3.png"
+        "./src/IMG/1.jpg",
+        "./src/IMG/2.png",
+        "./src/IMG/3.png"
     ];
     let currentSlide = 0;
     const homeImg = document.querySelector("#home img");
@@ -297,7 +305,8 @@ document.addEventListener("scroll", () => {
   
     
     document.addEventListener('DOMContentLoaded', function () {
-  const map = L.map('egypt-map', { zoomControl: false }).setView([26.8206, 30.8025], 6);
+const map = L.map('egypt-map', { zoomControl: false })
+  .setView([30.17922, 31.20560], 13); // 13 Zoom مناسب للمدينة
 
   // Tiles فاتحة وأنيقة
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -313,14 +322,14 @@ document.addEventListener("scroll", () => {
   const pinIcon = L.divIcon({
   className: "custom-pin bounce",
   html: `<div style="
-      width:48px; height:48px; 
+      width:30px; height:30px; 
       border-radius:50%; 
       background: linear-gradient(135deg, #0ea9b6, #0a6c79); 
       display:flex; align-items:center; justify-content:center; 
-      color:#fff; font-size:20px;
+      color:#fff; font-size:16px;
       box-shadow:0 4px 12px rgba(0,0,0,0.3);
     ">🤝</div>`,
-  iconSize: [48, 48],
+  iconSize: [30, 30],
   iconAnchor: [24, 48],
   popupAnchor: [0, -48]
 });
@@ -330,7 +339,6 @@ document.addEventListener("scroll", () => {
   { city: "عرب شركس", coords: [30.178007006449594, 31.18501336835836], help: " تم عمل محطه تحليه مياه " },
   { city: " عرب مره ", coords: [30.167729820317273, 31.183454308046144], help: " تم عمل محطه تحليه مياه   " },
   { city: "قريه ابوسنه", coords: [30.153087187916025, 31.22224020802629], help: " تم عمل محطه تحليه مياه  " },
-  { city: " بني سويف ", coords: [29.06730277688671, 31.100833698179326], help: " تم عمل وصلات مياه في قري محافظة بني سويف لخدمه الاهالي  " },
 ];
 
 // إنشاء البنات مع البوب أب

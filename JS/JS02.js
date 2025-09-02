@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const subtitleEl = document.getElementById('hero-subtitle');
 
   function showText() {
-    // اخفاء الحالي
+    // اخفاء 
     titleEl.classList.remove('show');
     subtitleEl.classList.remove('show');
 
@@ -43,6 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // أول تشغيل
   showText();
 
-  // تكرار كل 6 ثواني
+  // تكرار كل 3 ثواني
   setInterval(showText, 3000);
 });

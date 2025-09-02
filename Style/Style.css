@@ -308,3 +308,42 @@ footer a:hover {
 footer h3 {
   color: #ffffff;
 }
+.section-title {
+            @apply text-3xl md:text-4xl font-bold mb-4;
+        }
+        .section-subtitle {
+            @apply text-lg text-gray-600 max-w-2xl mx-auto mb-12;
+        }
+        .achievement-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .achievement-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .achievement-image {
+            height: 140px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .achievement-card:hover .achievement-image {
+            transform: scale(1.05);
+        }
+
+
+        /* لون الأسهم الافتراضي */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #474747 !important; /* أزرق */
+  transition: color 0.3s ease;
+}
+
+/* تغيير اللون عند المرور بالماوس */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #14a6c0 !important; /* أصفر */
+}
+
+
+
