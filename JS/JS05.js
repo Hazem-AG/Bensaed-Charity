@@ -10,21 +10,21 @@ document.addEventListener('DOMContentLoaded', function(){
     document.head.appendChild(style);
 });
 document.addEventListener('DOMContentLoaded', function() {
-    const popupOverlay = document.querySelector('.popup-overlay');
-    const glassPopup = document.querySelector('.glass-popup');
-    const closeBtn = document.querySelector('.close-btn');
+            const popupOverlay = document.querySelector('.popup-overlay');
+            const glassPopup = document.querySelector('.glass-popup');
+            const closeBtn = document.querySelector('.close-btn');
 
-    // ظهور النافذة بعد ثانيتين
-    setTimeout(() => {
-        popupOverlay.classList.add('show');   
-        glassPopup.classList.add('slide-in'); 
-    }, 2000);
+            setTimeout(() => {
+                popupOverlay.classList.add('show');   
+                glassPopup.classList.add('slide-in'); 
+            }, 2000);
 
-    // إغلاق النافذة
-    closeBtn.addEventListener('click', () => {
-        glassPopup.classList.remove('slide-in');
-        glassPopup.classList.add('slide-out'); 
-        setTimeout(() => { popupOverlay.classList.remove('show'); }, 500);
-    });
-});
+            closeBtn.addEventListener('click', () => {
+                glassPopup.classList.remove('slide-in');
+                glassPopup.classList.add('slide-out'); 
+                setTimeout(() => { popupOverlay.classList.remove('show'); }, 500);
+            });
+        });
+
+
 

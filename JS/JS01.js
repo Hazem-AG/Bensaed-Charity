@@ -2,12 +2,33 @@
     // استبدال أيقونات Lucide
     lucide.createIcons();
 
-    // قائمة الموبايل
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+   // قائمة الموبايل
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuLinks = mobileMenu.querySelectorAll('a');
+
+// فتح/قفل القائمة بالزر
+mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+
+    if (mobileMenu.classList.contains('hidden')) {
+        // القائمة مقفولة → رجع السكرول
+        document.body.classList.add('no-scroll');
+    } else {
+        // القائمة مفتوحة → وقف السكرول
+        document.body.classList.remove('no-scroll');
+    }
+});
+
+// قفل القائمة عند الضغط على اللينكات
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.classList.remove('no-scroll'); // رجع السكرول
     });
+});
+
+
 
     // عدادات متحركة
     const counters = document.querySelectorAll('.counter-value');
@@ -235,7 +256,7 @@ if (monthlyCasesChartCtx) {
 
     setInterval(() => {
         showSlide(currentSlide + 1);
-    }, 5000); // كل 5 ثواني تتغير الصورة
+    }, 4000); // 
 });
 // تفعيل Scroll سلس عند الضغط على روابط الـ nav
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -259,7 +280,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add("visible");   // يظهر تدريجي
         } 
     });
-}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+}, { threshold: 0.02, rootMargin: "0px 0px -50px 0px" });
 
 fadeSections.forEach(section => {
     fadeObserver.observe(section);
@@ -304,52 +325,4 @@ document.addEventListener("scroll", () => {
     });
   
     
-    document.addEventListener('DOMContentLoaded', function () {
-const map = L.map('egypt-map', { zoomControl: false })
-  .setView([30.17922, 31.20560], 13); // 13 Zoom مناسب للمدينة
-
-  // Tiles فاتحة وأنيقة
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 19
-  }).addTo(map);
-
-  // زووم كنترول
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-  // أيقونة Gradient + أيقونة قلب
-  const pinIcon = L.divIcon({
-  className: "custom-pin bounce",
-  html: `<div style="
-      width:30px; height:30px; 
-      border-radius:50%; 
-      background: linear-gradient(135deg, #0ea9b6, #0a6c79); 
-      display:flex; align-items:center; justify-content:center; 
-      color:#fff; font-size:16px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    ">🤝</div>`,
-  iconSize: [30, 30],
-  iconAnchor: [24, 48],
-  popupAnchor: [0, -48]
-});
-
-  // المواقع
- const contributions = [
-  { city: "عرب شركس", coords: [30.178007006449594, 31.18501336835836], help: " تم عمل محطه تحليه مياه " },
-  { city: " عرب مره ", coords: [30.167729820317273, 31.183454308046144], help: " تم عمل محطه تحليه مياه   " },
-  { city: "قريه ابوسنه", coords: [30.153087187916025, 31.22224020802629], help: " تم عمل محطه تحليه مياه  " },
-];
-
-// إنشاء البنات مع البوب أب
-contributions.forEach(loc => {
-  L.marker(loc.coords, { icon: pinIcon })
-    .addTo(map)
-    .bindPopup(`
-      <div style="min-width:180px; font-family: 'Cairo', sans-serif; text-align:center;">
-        <h3 style="margin:0; font-size:16px; color:#0ea9b6;">${loc.city}</h3>
-        <p style="margin:4px 0; font-size:14px; color:#333;">${loc.help}</p>
-      </div>
-    `);
-});
-});
+    

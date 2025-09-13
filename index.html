@@ -4,17 +4,66 @@
     <!-- ================== Meta Tags ================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bensaid Charitable Foundation</title>
-    <link rel="icon" type="image/png" href="./src/Logo/LOGO.ico" width="1000" height="1000">
+    <!-- Android -->
+    <meta name="theme-color" content="#0ea9b6">
+    <!--  iOS  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- (timestamp) -->
+    <script>
+      const version = new Date().getTime();
+    //  CSS
+    const stylesheets = [
+        "./Style/Style.css",
+        "./Style/About.css",
+        "./Style/popUP.css",
+        "./Style/map.css"
+    ];
+    stylesheets.forEach(file => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = file + "?v=" + version + "&rand=" + Math.random();
+        document.head.appendChild(link);
+    });
+    //  JS
+    const scripts = [
+        "JS01.js",
+        "JS02.js",
+        "JS03.js",
+        "JS04.js",
+        "JS05.js",
+        "map.js"
+    ];
+    scripts.forEach(file => {
+        const s = document.createElement("script");
+        s.src = "./JS/" + file + "?v=" + version + "&rand=" + Math.random();
+                // **السطر الذي يجب إضافته**
+        s.defer = true;
+                document.body.appendChild(s);
+    });
+    </script>
+    <title>Bensaed </title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/Logo/favicon/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/Logo/favicon/32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="./src/Logo/favicon/48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="./src/Logo/favicon/64.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./src/Logo/favicon/96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="./src/Logo/favicon/128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./src/Logo/favicon/192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="./src/Logo/favicon/256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./src/Logo/favicon/512.png">
+    
     <!-- ================== Fonts ================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    <!-- ================== CSS Libraries ================== -->
+    <!-- ================== Custom CSS ================== -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./Style/Style.css">
     <link rel="stylesheet" href="./Style/About.css">
     <link rel="stylesheet" href="./Style/popUP.css">
+    <link rel="stylesheet" href="./Style/map.css">
+    <!-- ================== CSS Libraries ================== -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,17 +74,17 @@
     <!-- ================== Developer Info ================== -->
     <!-- 
         Project: Bensaid Charitable Foundation
-        Developed by: Hazem Abdel Gawad Mohamed Amara
+        Developed by: Hazem Abdel Gawad Mohamed Emara
         © 2025
     -->
 </head>
 <body class="bg-gray-50">
         <!-- 01 - HEADER -->
-        <header id="header" class="fixed w-full top-0 z-50 rounded-b-2xl overflow-hidden">
+        <header id="header" class="fixed w-full top-0 z-50  overflow-hidden">
   <!-- DECORATIVE LINE -->
-  <div class="h-5" style="background-color: #0ea9b6;"></div>
+<div class="h-5 hidden lg:block" style="background-color: #0ea9b6;"></div>
   <!-- NAVBAR -->
-  <nav id="navbar" class="w-full transition-all duration-500 bg-white/80 backdrop-blur-sm shadow-md">
+  <nav id="navbar" class="w-full transition-all duration-500 bg-white/80 bg-white/0 shadow-md">
   <div class="container mx-auto px-6 py-4 flex items-center justify-between w-full">
   <!-- ICONS -->
   <div class="hidden lg:flex items-center space-x-3 rtl:space-x-reverse ml-16">
@@ -45,7 +94,7 @@
   <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
    <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
   </a>
-  <a href="https://wa.me/01009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+  <a href="https://wa.me/201009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
       <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
     </svg>
@@ -53,7 +102,7 @@
   </div>
 <!-- LOGO -->
       <a href="#" class="flex items-center shrink-0">
-        <img src="./src/Logo/logo white.svg" alt="شعار مؤسسة بنساعد" class="max-h-[120px] w-auto object-contain">
+        <img src="./src/Logo/logo2.svg" alt="شعار مؤسسة بنساعد" class="max-h-[80px] w-auto z-40 object-contain">
       </a>
 <!-- MENU -->
       <div class="hidden lg:flex flex-1 justify-center space-x-8 rtl:space-x-reverse font-semibold text-gray-700 transition-colors">
@@ -66,35 +115,52 @@
         <a href="#contact" class="nav-link hover:text-primary">تواصل معنا</a>
       </div>
 <!-- DONATION BUTTON -->
-      <a href="#donate" class="hidden lg:block bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all mx-auto">
-        تبرع الآن
+      <a href="./Pages/TimeLine/index.html" class="hidden lg:block bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all mx-auto">
+        قصة المؤسسة
       </a>
 <!-- MOBILE MENU BUTTON -->
-      <button id="mobile-menu-button" class="lg:hidden text-gray-700">
+      <button id="mobile-menu-button" class="lg:hidden  z-40  text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="hidden lg:hidden mt-4 flex flex-col space-y-3 backdrop-blur-sm bg-gray-800/90 text-white rounded-lg shadow-md p-4">
-      <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">عن المؤسسة</a>
-      <a href="#achievements" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الإنجازات</a>
-      <a href="#campaigns" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الحملات</a>
-      <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">المشاريع</a>
-      <a href="#stats" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">الإحصائيات</a>
-      <a href="#team" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">فريقنا</a>
-      <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700 rounded">تواصل معنا</a>
-      <a href="#donate" class="block bg-primary text-white text-center mt-2 px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all">تبرع الآن</a>
-    </div>
+<div id="mobile-menu" class="hidden fixed inset-0 z-20 flex flex-col justify-center items-center space-y-6 bg-gray-800 text-white">
+  <a href="#about" class="text-xl font-medium hover:text-primary transition">عن المؤسسة</a>
+  <a href="#achievements" class="text-xl font-medium hover:text-primary transition">الإنجازات</a>
+  <a href="#campaigns" class="text-xl font-medium hover:text-primary transition">الحملات</a>
+  <a href="#projects" class="text-xl font-medium hover:text-primary transition">المشاريع</a>
+  <a href="#stats" class="text-xl font-medium hover:text-primary transition">الإحصائيات</a>
+  <a href="#team" class="text-xl font-medium hover:text-primary transition">فريقنا</a>
+  <a href="#contact" class="text-xl font-medium hover:text-primary transition">تواصل معنا</a>
+<a href="./Pages/TimeLine/index.html" 
+   class="border-2 border-primary text-primary text-center px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition">
+  قصة المؤسسة
+</a>
+  <!-- ICONS -->
+  <div class="flex items-center space-x-3 rtl:space-x-reverse mt-4">
+    <a href="https://www.facebook.com/bans3edeg" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://wa.me/01009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+      </svg>
+    </a>
+  </div>
+</div>
   </nav>
         </header>
 <main class="pt-20">
         <!-- 02 - MAIN SECTION -->
-        <section id="home" class="relative h-[90vh] flex items-center justify-center text-white text-center overflow-hidden !pt-0 !mt-0">
+        <section id="home" class="relative h-[69vh] md:h-[90vh] lg:h-[92.5vh] flex items-center justify-center text-white text-center overflow-hidden !pt-0 !mt-0">
 <!-- TRANSPARENT BACKGROUND -->
     <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
 
 <!-- SLIDER -->
-    <div id="hero-slider" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
+    <div id="hero-slider" class="absolute inset-0 flex transition-transform duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)] opacity-0 animate-fade-in">
       <img src="./src/IMG/1.jpg" alt="صورة 1" class="w-full h-full object-cover flex-shrink-0">
       <img src="./src/IMG/2.png" alt="صورة 2" class="w-full h-full object-cover flex-shrink-0">
       <img src="./src/IMG/3.png" alt="صورة 3" class="w-full h-full object-cover flex-shrink-0">
@@ -102,32 +168,36 @@
 
 <!-- TEXT -->
     <div class="relative z-20 p-6 pt-24">
-  <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"></h1>
-  <p id="hero-subtitle" class="text-xl md:text-2xl max-w-3xl mx-auto drop-shadow-md"></p>
-  <a href="#donate" class="mt-8 inline-block bg-primary text-white px-10 py-3 rounded-full font-bold text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105">
-    ساهم معنا
+  <h1 id="hero-title" class="text-2xl sm:text-3xl md:text-5xl font-bold"></h1>
+<p id="hero-subtitle" class="text-base sm:text-lg md:text-xl mt-4"></p>
+  <a href="./Pages/TimeLine/index.html" class="mt-8 inline-block bg-primary text-white px-10 py-3 rounded-full font-bold text-lg hover:bg-opacity-90 transition-transform transform hover:scale-105">
+    قصة المؤسسة
   </a>
 </div>
         </section>
         <!-- 03 - ABOUT THE FOUNDATION -->
         <section class="section" id="about">
         <div class="container">
-            <!-- اللوجو -->
-<div class="logo-container flex justify-center items-center" data-aos="fade-down">
-    <img src="./src/Logo/logo color.svg" alt="شعار مؤسسة بنساعد" class="logo h-[350px] w-auto object-contain">
-</div>
+
 
 
             <!-- مقدمة عن المؤسسة -->
             <div class="intro-card" data-aos="fade-up">
+              <!-- اللوجو -->
+    <div class="logo-container">
+        <img src="./src/Logo/logo2.svg" alt="شعار مؤسسة بنساعد" class="logo-img">
+    </div>
                 <h2 class="section-title">عن مؤسسة بنساعد</h2>
                 
                 <p class="intro-text">
-                    في عام 2017، بدأت المؤسسة بفكرة مؤسسها، واستمرت في النمو مع انضمام أعضاء مجلس الإدارة. عمل المجلس والمتطوعون معًا بطريقة تطوعية محكومة بمبادئ المجتمع لإنشاء منظمة تقدم خدمات مجتمعية، تهدف إلى دعم وتحسين حياة الأفراد.
-                </p>
+ في عام 2017، بدأت الفكرة كحلم استمر أكثر من سنة ونصف قبل أن يتحول إلى واقع.
+المؤسس كان يسعى لإنشاء كيان يخدم المجتمع، ومع مرور الوقت وجد الدعم من أعضاء مجلس الإدارة الأوائل الذين شاركوه نفس الرؤية.
+
+اجتمع المجلس مع مجموعة من المتطوعين، كلهم عملوا بروح تطوعية خالصة، واعتمدوا على مبادئ المجتمع كمرجعية أساسية.
+بهذا الجهد المشترك، تأسست المنظمة لتصبح منصة تقدم خدمات مجتمعية حقيقية، هدفها الأساسي دعم الأفراد وتحسين ج                </p>
 
                 <p class="intro-text">
-                    في عام 2019، كانت لحظة حاسمة بتأسيس "بنساعد" رسميًا (برقم قيد 2019 لسنة 2019)، بهدف توفير الاحتياجات الأساسية للمحتاجين، ومساعدتهم على تحسين حياتهم، ودعم توفير حياة كريمة لهم. كما تسعى أيضًا إلى غرس قيم الإنسانية والعطاء في شبابنا لمواصلة ما بدأناه.
+                    في عام 2019، كانت لحظة حاسمة بتأسيس "بنساعد" رسميًا (برقم قيد 2539 لسنة 2019)، بهدف توفير الاحتياجات الأساسية للمحتاجين، ومساعدتهم على تحسين حياتهم، ودعم توفير حياة كريمة لهم. كما تسعى أيضًا إلى غرس قيم الإنسانية والعطاء في شبابنا لمواصلة ما بدأناه.
                 </p>
 
                 <p class="intro-text">
@@ -139,8 +209,6 @@
                 </p>
                 
                 <!-- Decorative circles -->
-                <div class="decorative-circle circle-1"></div>
-                <div class="decorative-circle circle-2"></div>
             </div>
 
             <!-- الرؤية -->
@@ -220,24 +288,31 @@
         </div>
         </section>
         <!-- 04 - CONTRIBUTIONS ON THE MAP -->
-        <section id="map-section" class="py-20 bg-white">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6 text-gray-800">أماكن مساهماتنا في مصر</h2>
-    <p class="text-gray-600 mb-8">نفخر بتقديم مساعداتنا في هذه المناطق عبر مختلف مشروعات المؤسسة.</p>
-    
-    <!-- Map -->
-<div id="egypt-map" style="height:600px; border-radius:20px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.15);"></div>
-  </div>
+        <section id="map-section" class="py-20 ">
+        <div id="map-section2" class="container mx-auto px-6 ">
+            <h2 class="text-4xl font-bold mb-6 text-white text-center">أماكن مساهماتنا في القليوبية</h2>
+    <p class="text-white mb-8 text-center">نفخر بتقديم مساعداتنا في هذه المناطق عبر مختلف مشروعات المؤسسة.</p>
+            
+            
+            
+            <div id="map-section3" class="container">
+                <div id="egypt-map"></div>
+                <div id="locations-list">
+                    <h2>المناطق</h2>
+                    <div id="areas"></div>
+                </div>
+            </div>
+        </div>
         </section>
         <!-- 05 - ACHIEVEMENTS -->
         <section id="achievements" class="py-20">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="section-title text-gray-800">أبرز إنجازاتنا</h2>
-            <p class="section-subtitle">بفضل دعمكم، تمكنا من تحقيق العديد من الإنجازات التي لمست حياة الآلاف.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!--  Cards -->
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+        <h2 class="section-title text-gray-800">أبرز إنجازاتنا</h2>
+        <p class="section-subtitle">بفضل دعمكم، تمكنا من تحقيق العديد من الإنجازات التي لمست حياة الآلاف.</p>
+        
+        <div class="swiper achievements-swiper-container relative">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="مساعدات مالية" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">مساعدات مالية</h3>
@@ -245,31 +320,31 @@
                     </div>
                 </div>
                 
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/علاجيه.svg" alt="مساعدات علاجية" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">مساعدات علاجية</h3>
                         <p class="text-sm text-gray-500 mt-2">علاج أكثر من 792 حالة</p>
                     </div>
                 </div>
-                
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/تجهيز فتيات.svg" alt="تجهيز الفتيات" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">تجهيز الفتيات</h3>
                         <p class="text-sm text-gray-500 mt-2">تجهيز أكثر من 113 فتاة</p>
                     </div>
                 </div>
-                
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/اطعام.svg" alt="إطعام الطعام" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">إطعام الطعام</h3>
                         <p class="text-sm text-gray-500 mt-2">توزيع 8948+ وجبة</p>
                     </div>
                 </div>
-                
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center ">
+
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/سقيا الماء.svg" alt="سقيا الماء" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">سقيا الماء</h3>
@@ -277,35 +352,42 @@
                     </div>
                 </div>
                 
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/مشاريع.svg" alt="مشاريع تنموية" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">مشاريع تنموية</h3>
                         <p class="text-sm text-gray-500 mt-2">تمكين 49+ أسرة بمشاريع</p>
                     </div>
                 </div>
-                
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/شنط غذائية.png" alt="شنط غذائية" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">شنط غذائية</h3>
                         <p class="text-sm text-gray-500 mt-2">توزيع 11232+ شنطة</p>
                     </div>
                 </div>
-                
-                <div class="achievement-card bg-white rounded-lg shadow-lg text-center">
+
+                <div class="swiper-slide achievement-card bg-white rounded-lg shadow-lg text-center">
                     <img src="./src/IMG/تعليم.svg" alt="دعم التعليم" class="achievement-image w-full h-64 object-cover object-top rounded-xl">
                     <div class="p-5">
                         <h3 class="font-bold text-lg">دعم التعليم</h3>
                         <p class="text-sm text-gray-500 mt-2">دعم 1125+ طالب</p>
                     </div>
                 </div>
+
             </div>
+
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
         </div>
         </section>
         <!-- 06 - CAMPAIGNS -->
-        <section id="campaigns" class="py-20 bg-white">
-  <div class="container mx-auto px-6 text-center">
+        <section id="campaigns" class="py-20 bg-white ">
+  <div class="container mx-auto px-6 text-center ">
     <h2 class="section-title text-gray-800">حملاتنا الموسمية</h2>
     <p class="section-subtitle">
       نطلق حملاتنا كل عام لتلبية الاحتياجات الموسمية ومضاعفة الأجر.
@@ -360,7 +442,7 @@
 
         <!-- card  5 -->
         <div class="swiper-slide bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-          <img src="./src/Campaigns/العشرة من ذو الحجه.png" class="w-full h-48 object-cover" alt="حملة العشرة من ذو الحجه" />
+          <img src="./src/IMG/2.png" class="w-full h-48 object-cover" alt="حملة العشرة من ذو الحجه" />
           <div class="p-6">
             <h3 class="font-bold text-xl mb-2">حملة العشرة الاوائل من ذو الحجه</h3>
             <p class="text-gray-600 mb-4">توزيع وجبات و مساعدات ماليه علي الاسر و القري المحتاجه      </p>
@@ -403,54 +485,65 @@
         </section>
         <!-- 07 - PROJECTS & ACTIVITIES -->
         <section id="projects" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="section-title text-gray-800">المشاريع والأنشطة</h2>
-                <p class="section-subtitle">مبادراتنا مستمرة على مدار العام لإحداث تغيير حقيقي ومستدام.</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/قافله طبيه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="قوافل طبية">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">القوافل الطبية</h3>
-                            <p class="text-gray-600">تنظيم قوافل طبية مجانية في القرى الأكثر احتياجًا.</p>
-                        </div>
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="section-title text-gray-800">المشاريع والأنشطة</h2>
+        <p class="section-subtitle">مبادراتنا مستمرة على مدار العام لإحداث تغيير حقيقي ومستدام.</p>
+
+        <div class="swiper projects-swiper-container relative">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/قافله طبيه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="قوافل طبية">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">القوافل الطبية</h3>
+                        <p class="text-gray-600">تنظيم قوافل طبية مجانية في القرى الأكثر احتياجًا.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/حفلات تحفيظ القرأن.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="حفلات تحفيظ القرآن">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">حفلات تحفيظ القرآن</h3>
-                            <p class="text-gray-600">تكريم وتشجيع حفظة كتاب الله من الأطفال والشباب.</p>
-                        </div>
+                </div>
+
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/حفلات تحفيظ القرأن.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="حفلات تحفيظ القرآن">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">حفلات تحفيظ القرآن</h3>
+                        <p class="text-gray-600">تكريم وتشجيع حفظة كتاب الله من الأطفال والشباب.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/دور الايتام.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="دعم دور الأيتام">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">دعم دور الأيتام</h3>
-                            <p class="text-gray-600">ندعم دور الأيتام بتوفير احتياجاتهم الأساسية والتعليمية، لنمنحهم مستقبلًا أفضل.    .</p>
-                        </div>
+                </div>
+
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/دور الايتام.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="دعم دور الأيتام">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">دعم دور الأيتام</h3>
+                        <p class="text-gray-600">ندعم دور الأيتام بتوفير احتياجاتهم الأساسية والتعليمية، لنمنحهم مستقبلًا أفضل.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/وصلات المياه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">محطات تحليه المياه</h3>
-                            <p class="text-gray-600">توفير مياه شرب نظيفة للأسر في المناطق النائية.</p>
-                        </div>
+                </div>
+
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/وصلات المياه.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">محطات تحليه المياه</h3>
+                        <p class="text-gray-600">توفير مياه شرب نظيفة للأسر في المناطق النائية.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/زراعة النخيل.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">زراعة الناخيل</h3>
-                            <p class="text-gray-600">زراعة النخايل صدقة جارية وخير متجدد للأرض والإنسان.</p>
-                        </div>
+                </div>
+
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/زراعة النخيل.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">زراعة الناخيل</h3>
+                        <p class="text-gray-600">زراعة النخايل صدقة جارية وخير متجدد للأرض والإنسان.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-                        <img src="./src/Campaigns/تعمير المساجد.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">تعمير المساجد </h3>
-                            <p class="text-gray-600">نسعى لتعمير المساجد لتظل منارات للخير والعبادة..</p>
-                        </div>
+                </div>
+
+                <div class="swiper-slide bg-white rounded-lg shadow-lg overflow-hidden group">
+                    <img src="./src/Campaigns/تعمير المساجد.svg" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="عمل وصلات مياه">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">تعمير المساجد</h3>
+                        <p class="text-gray-600">نسعى لتعمير المساجد لتظل منارات للخير والعبادة.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
         </section>
         <!-- 08 - STATISTICS -->
         <section id="stats" class="py-20 text-white ">
@@ -489,7 +582,7 @@
         <section id="trustees" class="py-20">
     <div class="container mx-auto px-6 text-center">
       <h2 class="section-title text-white">مجلس الأمناء</h2>
-      <p class="section-subtitle text-white mb-10">العقول التي تقود رسالتنا وتبني رؤيتنا.</p>
+      <p class="section-subtitle text-white !text-white mb-10">العقول التي تقود رسالتنا وتبني رؤيتنا.</p>
 
       <!-- slider -->
       <div class="swiper trustees-swiper relative">
@@ -603,7 +696,7 @@
           </div>
         </div>
 
-      <!-- NAVIGATION BUTTONS -->
+        <!-- NAVIGATION BUTTONS -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
@@ -611,226 +704,288 @@
         </section>
         <!-- 11 - DONATION METHODS -->
         <section id="donate" class="py-20 bg-white">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="section-title text-white">تبرعك يصنع فرقًا</h2>
-    <p class="section-subtitle text-white">اختر الطريقة الأنسب لك للمساهمة في تغيير حياة الآلاف نحو الأفضل.</p>
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="section-title text-white">تبرعك يصنع فرقًا</h2>
+        <p class="section-subtitle text-white" >اختر الطريقة الأنسب لك للمساهمة في تغيير حياة الآلاف نحو الأفضل.</p>
 
-    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-      <!-- فودافون كاش -->
-      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-        <img src="./src/Icon/vodafone-svgrepo-com.svg" style="width: 100px; height: 100px;"  class="mx-auto mb-4 rounded-full" alt="فودافون كاش">
-        <h3 class="text-xl font-bold mb-2">فودافون كاش</h3>
-        <p id="vodafone" class="text-gray-600 font-mono"> ----------- </p>
-        <button onclick="copyText('')" class="mt-3 inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
-         تبرع
-        </button>
-      </div>
+        <div class="swiper donation-swiper-container relative max-w-4xl mx-auto">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="./src/Icon/vodafone-svgrepo-com.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="فودافون كاش">
+                    <h3 class="text-xl font-bold mb-2">فودافون كاش</h3>
+                    <p id="vodafone" class="text-gray-600 font-mono"> ----------- </p>
+                    <button onclick="copyText('')" class="mt-3 w-full inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
+                    تبرع
+                    </button>
+                </div>
 
-      <!-- إنستاباي -->
-      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-        <img src="./src/Icon/انستا باي.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="إنستاباي">
-        <h3 class="text-xl font-bold mb-2">إنستاباي</h3>
-        <p id="instapay" class="text-gray-600 font-mono"> ----------- </p>
-        <button onclick="copyText('')" class="mt-3 inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
-         تبرع
-        </button>
-      </div>
+                <div class="swiper-slide bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="./src/Icon/انستا باي.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="إنستاباي">
+                    <h3 class="text-xl font-bold mb-2">إنستاباي</h3>
+                    <p id="instapay" class="text-gray-600 font-mono"> ----------- </p>
+                    <button onclick="copyText('')" class="mt-3 w-full inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
+                    تبرع
+                    </button>
+                </div>
 
-      <!-- مندوب للمنزل -->
-      <div class="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-        <img src="./src/Icon/مندوب.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="كاش مباشر">
-        <h3 class="text-xl font-bold mb-2">مندوب للمنزل</h3>
-        <p id="home" class="text-gray-600"> -----------  </p>
-        <button onclick="copyText('')" class="mt-3 inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
-          تبرع
-        </button>
-      </div>
+                <div class="swiper-slide bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <img src="./src/Icon/مندوب.svg" style="width: 100px; height: 100px;" class="mx-auto mb-4 rounded-full" alt="كاش مباشر">
+                    <h3 class="text-xl font-bold mb-2">مندوب للمنزل</h3>
+                    <p id="home" class="text-gray-600"> ----------- </p>
+                    <button onclick="copyText('')" class="mt-3 w-full inline-block bg-gray-400 text-white px-4 py-2 rounded-lg hover:bg-opacity-90 cursor-not-allowed opacity-70 transition">
+                    تبرع
+                    </button>
+                </div>
+            </div>
+            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <a href="#" 
+           class="mt-12 inline-block bg-gray-400 text-white px-12 py-4 rounded-full font-bold text-xl cursor-not-allowed opacity-70 shadow-lg">
+           التبرع أونلاين متوقف حالياً
+        </a>
     </div>
-
-<a href="#" 
-   class="mt-12 inline-block bg-gray-400 text-white px-12 py-4 rounded-full font-bold text-xl cursor-not-allowed opacity-70 shadow-lg">
-   التبرع أونلاين متوقف حالياً
-</a>
-
-  </div>
         </section>
         <!-- 12 - CONTACT FORMS -->
         <section id="contact" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="section-title text-center text-gray-800">كن جزءًا من قصتنا</h2>
-                <p class="section-subtitle text-center">سواء كنت متبرعًا، متطوعًا، أو تحتاج للمساعدة، نرحب بك دائمًا.</p>
-                <div class="grid lg:grid-cols-3 gap-8 text-center">
-                    <!-- رابط المتطوعين -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+    <div class="container mx-auto px-6">
+        <h2 class="section-title text-center text-gray-800">كن جزءًا من قصتنا</h2>
+        <p class="section-subtitle text-center">سواء كنت متبرعًا، متطوعًا، أو تحتاج للمساعدة، نرحب بك دائمًا.</p>
+        
+        <div class="swiper contact-forms-swiper relative">
+            <div class="swiper-wrapper">
+                
+              <div class="swiper-slide">
+    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+        <i data-lucide="briefcase" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">انضم إلى فريقنا</h3>
+        <p class="text-gray-600 mb-6">انضم إلى فريقنا المتميز وساهم في تحقيق أهدافنا.</p>
+        <a href="./Pages/Forms/Job Applications/index.html"  class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">قدم طلبك الآن</a>
+    </div>
+</div>
+
+                <div class="swiper-slide">
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
                         <i data-lucide="users" class="w-16 h-16 mx-auto text-primary mb-4"></i>
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">انضم كمتطوع</h3>
                         <p class="text-gray-600 mb-6">كن جزءًا من فريقنا وساهم بوقتك ومهاراتك في خدمة المجتمع.</p>
-                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">سجل الآن</a>
+                        <a href="./Pages/Forms/Volunteer Application/index.html" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">سجل الآن</a>
                     </div>
-                    <!-- رابط الحالات -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                        <i data-lucide="file-text" class="w-16 h-16 mx-auto text-primary mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-4 text-gray-800">طلب مساعدة</h3>
-                        <p class="text-gray-600 mb-6">إذا كنت تحتاج إلى مساعدة، يمكنك تقديم طلبك ليتم دراسته.</p>
-                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">قدم طلبك</a>
-                    </div>
-                     <!-- رابط المتبرعين -->
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
                         <i data-lucide="gem" class="w-16 h-16 mx-auto text-primary mb-4"></i>
                         <h3 class="text-2xl font-bold mb-4 text-gray-800">كن شريكًا في الخير</h3>
                         <p class="text-gray-600 mb-6">انضم إلى قائمتنا البريدية لتصلك آخر أخبارنا وحملاتنا أولاً بأول.</p>
-                        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">اشترك الآن</a>
+                        <a href="./Pages/Forms/Donor Applications/index.html" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">اشترك الآن</a>
                     </div>
                 </div>
+
+                <div class="swiper-slide">
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <i data-lucide="file-text" class="w-16 h-16 mx-auto text-primary mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">طلب مساعدة</h3>
+                        <p class="text-gray-600 mb-6">إذا كنت تحتاج إلى مساعدة، يمكنك تقديم طلبك ليتم دراسته.</p>
+                        <a href="./Pages/Forms/Poor Case Applications/index.html" target="_blank" class="inline-block w-full bg-primary text-white py-3 rounded-md font-bold hover:bg-opacity-90">قدم طلبك</a>
+                    </div>
+                </div>
+                
+                
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        </div>
         </section>
         <!-- 13 - OUR PARTNERS -->
-        <section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
-      شركاؤنا في العطاء
-    </h2>
-    <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
-      نفتخر بشراكتنا مع هذه المؤسسات والشركات التي تدعمنا بشكل دوري لتحقيق رسالتنا.
-    </p>
+        <section class="py-16 bg-[#0ea9b6]">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">
+            شركاؤنا في العطاء
+        </h2>
+        <p class="text-white mb-12 max-w-2xl mx-auto">
+            نفتخر بشراكتنا مع هذه المؤسسات والشركات التي تدعمنا بشكل دوري لتحقيق رسالتنا.
+        </p>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-      <!-- Placeholder لكل شعار -->
-      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center h-24">
-        <span class="text-gray-400 font-semibold text-lg">Logo</span>
-      </div>
-      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center h-24">
-        <span class="text-gray-400 font-semibold text-lg">Logo</span>
-      </div>
-      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center h-24">
-        <span class="text-gray-400 font-semibold text-lg">Logo</span>
-      </div>
-      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center h-24">
-        <span class="text-gray-400 font-semibold text-lg">Logo</span>
-      </div>
-      <div class="p-4 bg-white shadow-md rounded-2xl hover:shadow-lg transition transform hover:scale-105 flex items-center justify-center h-24">
-        <span class="text-gray-400 font-semibold text-lg">Logo</span>
-      </div>
+        <div class="swiper partners-swiper-container relative">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide p-4 w-[100px] h-[120px]  flex items-center justify-center bg-transparent rounded-2xl ">
+                 <img src="./src/Logo/شركائنا/Bridge.svg" alt="Bridge" class="w-full h-full object-contain">
+                 </div>
+
+                 <div class="swiper-slide p-4 w-[100px] h-[120px]  flex items-center justify-center bg-transparent rounded-2xl ">
+                 <img src="./src/Logo/شركائنا/Bridge.svg" alt="Bridge" class="w-full h-full object-contain">
+                 </div>
+
+                 <div class="swiper-slide p-4 w-[100px] h-[120px]  flex items-center justify-center bg-transparent rounded-2xl ">
+                 <img src="./src/Logo/شركائنا/Bridge.svg" alt="Bridge" class="w-full h-full object-contain">
+                 </div>
+
+                 <div class="swiper-slide p-4 w-[100px] h-[120px]  flex items-center justify-center bg-transparent rounded-2xl ">
+                 <img src="./src/Logo/شركائنا/Bridge.svg" alt="Bridge" class="w-full h-full object-contain">
+                 </div>
+
+                 <div class="swiper-slide p-4 w-[100px] h-[120px]  flex items-center justify-center bg-transparent rounded-2xl ">
+                 <img src="./src/Logo/شركائنا/Bridge.svg" alt="Bridge" class="w-full h-full object-contain">
+                 </div>
+                
+                </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
-  </div>
         </section>
 </main>
-        <!-- 14 - POPUP WINDOW -->
+          <!-- 14 - POPUP WINDOW -->
         <div class="popup-overlay">
-    <div class="glass-popup">
-        <div class="gold-border"></div>
-        <div class="floating-elements">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
+        <div class="glass-popup">
+            <div class="gold-border"></div>
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+            
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+                        
+            <!-- الشعار الجديد فوق الرقم -->
+            <div class="slogan">
+                سبع سنوات ولسه مكملين
+            </div>
+            
+            <!-- تصميم جديد للرقم 7 في المنتصف -->
+            <div class="seven-badge">
+                <div class="number-7">7</div>
+                <div class="years-text">سبع سنوات</div>
+            </div>
+            
+            <div class="continuity">
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+                <div class="circle active"></div>
+            </div>
+            
+            <!-- النص الجديد المطلوب -->
+            <div class="special-message">
+                بفضل الله أولًا، ثم بفضل دعم متبرعينا الكرام واجتهاد متطوعينا الأعزاء، 
+                قدرنا نكمل مشوار العطاء 7 سنوات متتالية من الاستمرارية والتميز.
+            </div>
+            
+            <p class="signature">نعمل معًا من أجل مستقبل أفضل </p>
         </div>
-        <div class="seven-badge">7</div>
-        <div class="close-btn"><i class="fas fa-times"></i></div>
-        <h1 class="main-title">التميز المستمر</h1>
-        <div class="continuity">
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-            <div class="circle active"></div>
-        </div>
-        <div class="accent-bg">
-            <p class="message">
-                بكل فخر واعتزاز، نشارككم إنجاز <span class="highlight">الاستمرارية والتميز</span> لمدة <span class="gold-accent">سبع سنوات</span> على التوالي.
-            </p>
-        </div>
-        <div class="stats-container">
-            <div class="stat-item"><div class="stat-number">7+</div><div class="stat-label">سنوات من الخبرة</div></div>
-            <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">نشاط و حملة ناجحة</div></div>
-            <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">رضا العملاء</div></div>
-        </div>
-        <p class="signature">نعمل من أجل مستقبل أفضل</p>
-    </div>
         </div>
         <!-- 15 - FOOTER -->
-        <footer class="bg-[#353434] backdrop-blur-lg text-white shadow-lg rounded-t-2xl">
+       <footer class="bg-[#353434] backdrop-blur-lg text-white shadow-lg ">
   <div class="container mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-4 gap-8">
-      <!--  logo -->
-      <div class="flex flex-col items-start">
-        <a href="#" class="flex items-center mb-4">
-          <img src="./src/Logo/logo white.svg" alt="شعار مؤسسة بنساعد" class="max-h-[160px] w-auto object-contain">
-        </a>
-        <p class="text-gray-300 text-sm">نعمل بشغف لتحقيق التنمية المستدامة وتمكين كل فرد في مجتمعنا. شكرًا لكونك جزءًا من رحلتنا.</p>
-      </div>
+    <div class="grid md:grid-cols-4 gap-14 text-center md:text-right">
+      <!-- logo + description + social icons -->
+<div class="flex flex-col items-center text-center">
+  <!-- اللوجو -->
+  <a href="#" class="mb-4">
+    <img src="./src/Logo/logo3.svg" alt="شعار مؤسسة بنساعد" class="h-[160px] w-auto object-contain">
+  </a>
 
-      <!-- links  -->
-      <div>
+  <!-- النص -->
+  <p class="text-gray-300 font-bold text-sm max-w-xs">
+    نعمل بشغف لتحقيق التنمية المستدامة وتمكين كل فرد في مجتمعنا. شكرًا لكونك جزءًا من رحلتنا.
+  </p>
+
+  <!-- الأيقونات الاجتماعية -->
+  <div class="flex items-center justify-center space-x-3 rtl:space-x-reverse mt-3">
+    <a href="https://www.facebook.com/bans3edeg" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://wa.me/201009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+      <!-- links -->
+      <div class="flex flex-col items-center md:items-start">
         <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
-        <ul class="space-y-2 text-gray-300">
-          <li><a href="#about" class="hover:text-[#0ea9b6] transition">عن المؤسسة</a></li>
-          <li><a href="#achievements" class="hover:text-[#0ea9b6] transition">الإنجازات</a></li>
-          <li><a href="#campaigns" class="hover:text-[#0ea9b6] transition">الحملات</a></li>
-          <li><a href="#contact" class="hover:text-[#0ea9b6] transition">تواصل معنا</a></li>
+                        <span class="block w-10 h-0.5 bg-[#0ea9b6] mt-2 mb-4"></span>
+        <ul class="space-y-2 text-[#89fced]">
+          <li><a href="#about" class="hover:hover:text-white transition hover:text-white">عن المؤسسة</a></li>
+          <li><a href="#achievements" class="hover:hover:text-white transition hover:text-white">الإنجازات</a></li>
+          <li><a href="#campaigns" class="hover:hover:text-white transition hover:text-white">الحملات</a></li>
+          <li><a href="#contact" class="hover:hover:text-white transition hover:text-white">تواصل معنا</a></li>
         </ul>
       </div>
 
-<!-- SERVICES OR PRODUCTS -->
-      <div>
+      <!-- services -->
+      <div class="flex flex-col items-center md:items-start">
         <h3 class="text-xl font-bold mb-4">خدماتنا</h3>
-        <ul class="space-y-2 text-gray-300">
-          <li><a href="#" class="hover:text-[#0ea9b6] transition">مساعدات مالية</a></li>
-          <li><a href="#" class="hover:text-[#0ea9b6] transition">مساعدات علاجية</a></li>
-          <li><a href="#" class="hover:text-[#0ea9b6] transition">مشروعات البنية التحتية</a></li>
-          <li><a href="#" class="hover:text-[#0ea9b6] transition">تجهيز الأسر والفتيات</a></li>
+                <span class="block w-10 h-0.5 bg-[#0ea9b6] mt-2 mb-4"></span>
+        <ul class="space-y-2 font-bold text-[#89fced]">
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مساعدات مالية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مساعدات علاجية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مشروعات البنية التحتية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">تجهيز الأسر والفتيات</a></li>
         </ul>
       </div>
 
-<!-- SOCIAL MEDIA -->
-      <div>
+      <!-- social -->
+      <div class="flex flex-col items-center md:items-start">
         <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
         <ul class="space-y-3 text-gray-300">
-          <li class="flex items-center"><i data-lucide="phone" class="w-5 h-5 mr-2 rtl:ml-2"></i> 01009640501 - 0242159007 </li>
-          <li class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-2 rtl:ml-2"></i> bensaed.charity.2019@gmail.com</li>
-<li class="flex items-center">
-  <i data-lucide="map-pin" class="w-5 h-5 mr-2 rtl:ml-2"></i>
-  <a href="https://maps.app.goo.gl/j4BtzxA5rnv9vZB78" 
-     target="_blank" 
-     class="hover:text-[#0ea9b6] transition">
-    ٨ شارع محمد احمد الشوربي - ارض الجمعية - قليوب البد 13613
-  </a>
-</li>        </ul>
-         <!-- الأيقونات -->
-<div class="hidden lg:flex items-center space-x-3 rtl:space-x-reverse mt-3">
-  <a href="https://www.facebook.com/bans3edeg" target="_blank" 
-     class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
-    <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
-  </a>
-  <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" 
-     class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
-    <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
-  </a>
-  <a href="https://wa.me/01009640501" target="_blank" 
-     class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
-    </svg>
-  </a>
-</div>
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="phone" class="w-5 h-5 mr-2 rtl:ml-2"></i> 01009640501 - 0242159007
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="mail" class="w-5 h-5 mr-2 rtl:ml-2"></i> info@bensaed.com
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="map-pin" class="w-5 h-5 mr-2 rtl:ml-2"></i>
+            <a href="https://maps.app.goo.gl/j4BtzxA5rnv9vZB78" target="_blank" class="hover:text-[#0ea9b6] transition">
+              ٨ شارع محمد احمد الشوربي - ارض الجمعية - قليوب البد 13613
+            </a>
+          </li>
+        </ul>
+
+        
       </div>
     </div>
 
     <!-- حقوق النشر -->
-    <div class="mt-12 pt-8 border-t border-white/20 text-center text-gray-400 text-sm space-y-1">
-  <p>&copy; 2024 مؤسسة بنساعد. جميع الحقوق محفوظة للمؤسسة.</p>
-</div>
+    <div class="mt-12 pt-8 border-t border-white/20 text-center space-y-1">
+      <p class="text-ui-light-shade-color" style="color:var(--ui-light-shade-color)">
+        Created by Hazem Emara &copy;
+      </p>
+    </div>
   </div>
-        </footer>
+       </footer>
+
   <!-- ================== Custom JS ================== -->
 <script src="./JS/JS01.js"></script>
 <script src="./JS/JS02.js"></script>
 <script src="./JS/JS03.js"></script>
 <script src="./JS/JS04.js"></script>
 <script src="./JS/JS05.js"></script>
+<script src="./JS/map.js"></script>
+
+
+
+
 <!-- ================== External JS Libraries ================== -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<!-- ================== ================== -->
+
 </body>
 </html>

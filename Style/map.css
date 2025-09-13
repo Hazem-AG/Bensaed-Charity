@@ -1,0 +1,247 @@
+/* -- Map -->*/
+
+#locations-list {
+    width: 30%;
+    min-width: 280px;
+    background: var(--light-bg);
+    padding: 10px;
+    box-shadow: var(--card-shadow);
+    border-radius: 16px;
+    margin-left: 20px;
+    max-height: 600px !important;   /* أو أي ارتفاع مناسب */
+    overflow-y: auto;    /* يخلي المحتوى يلف جوا الصندوق */
+    scrollbar-width: thin;              /* للفايرفوكس */
+    scrollbar-color: rgba(0,0,0,0.3) transparent;
+}
+/* Webkit browsers */
+#locations-list::-webkit-scrollbar {
+    width: 8px;                /* سمك السكرول */
+}
+
+#locations-list::-webkit-scrollbar-track {
+    background: transparent;   /* الخلفية شفافة */
+}
+
+#locations-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);  /* شفاف */
+    border-radius: 10px;          /* حواف ناعمة */
+    transition: background 0.3s ease;
+}
+
+#locations-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.5);  /* غامق شوية عند الهوفر */
+}
+
+        :root {
+            --primary-color: #0ea9b6;
+            --secondary-color: #0a6c79;
+            --accent-color: #ff7e5f;
+            --light-bg: #f8fdff96;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+
+
+#locations-list h2 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  position: sticky;       /* تخليها ثابتة */
+  top: 0;         
+border-radius: 20px;
+color: var(--secondary-color);
+  background: #ffffff;    /* خلفية غامقة (غير الأبيض) عشان تناسب اللون الأبيض للنص */
+  padding: 10px 0;
+  z-index: 10;            /* يخليها فوق العناصر */
+}
+
+#locations-list h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 3px;
+}
+        
+        .area-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #ffffff60;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            border-right: 4px solid transparent;
+        }
+        
+        .area-card:hover {
+            background: white;
+            color: var(--secondary-color);
+            transform: translateX(-4px);
+            border-right: 4px solid var(--primary-color);
+        }
+        
+        .area-card.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-right: 4px solid var(--accent-color);
+        }
+        
+        .area-card span {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .area-card i {
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .area-card:hover i, .area-card.active i {
+            color: white;
+            transform: scale(1.2);
+        }
+        
+        /* تحسينات الخريطة */
+        #map-section {
+            padding: 60px 0;
+            background:  #0ea9b6;
+        }
+
+    #map-section3{
+        display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+    }
+        
+        
+        #egypt-map {
+            flex: 1;
+            height: 600px;
+            width: 70%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1;
+        }
+        
+        
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        /* Popup Styles */
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .leaflet-popup-content {
+            margin: 15px;
+            text-align: center;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .popup-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .popup-desc {
+            color: var(--dark-text);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .leaflet-popup-tip {
+            background: var(--primary-color);
+        }
+        
+        /* تحسينات للواجهة على الجوال */
+        @media (max-width: 992px) {
+            #map-section .container {
+                flex-direction: column;
+            }
+            
+            #locations-list {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 20px;
+                border-radius: 12px;
+                height: 300px;
+            }
+            #map-section3{
+                height:700PX;
+            }
+            #egypt-map {
+                width: 100%;
+                height: 10px !important;
+            }
+            #popup-a{
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+           
+            
+            #egypt-map {
+                height: 400px;
+            }
+        }
+        
+        /* تأثيرات إضافية */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin: 10px;
+            flex: 1;
+            min-width: 150px;
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--light-text);
+        }
+     

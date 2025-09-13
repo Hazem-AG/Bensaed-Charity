@@ -8,7 +8,7 @@
     font-family: 'Cairo', sans-serif;
     scroll-behavior: smooth;
     background-color: #ffffff;
-background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+background-image: url("https://www.transparenttextures.com/patterns/french-stucco.png");
     background-repeat: repeat;       /* تكرار التكستشر */
     background-size: auto;           /* الحجم الطبيعي للتكستشر */
     background-attachment: fixed;    /* تثبيت الخلفية أثناء التمرير */
@@ -24,6 +24,37 @@ background-image: url("https://www.transparenttextures.com/patterns/escheresque.
         #home img {
   transition: opacity 0.8s ease-in-out;
 }
+#about
+,#achievements
+,#projects
+,#contact
+ {
+  background-image: url("//res2.weblium.site/res/62af7b435bb66a000dcacfd4/62b1e2de23121a000db10d9b_optimized_1920.webp");
+  background-repeat: repeat;   /* الصورة تتكرر */
+  background-size: 600px 600px;       /* حجمها الطبيعي */
+  background-position: top left;
+  background-color: #fff;
+}
+
+.intro-card {
+  background: rgba(255, 255, 255, 0) !important;  /* خلفية شبه شفافة */
+
+  border-radius: 0px !important;                    /* حواف ناعمة */
+  border: 1px solid rgba(255, 255, 255, 0) !important; /* خط خفيف شبه شفاف */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0) !important; /* ظل ناعم */
+  padding: 20px;
+}
+.intro-card::before {
+  content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 5px;
+    height: 0% !important;
+    background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+}
+
+
 .fade-up {
   opacity: 0;
   transform: translateY(25px) scale(0.95);
@@ -55,14 +86,16 @@ main {
 }
 section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-in-out;
+  transform: translateY(40px) scale(0.95);
+  transition: all 1s cubic-bezier(0.25, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
+
 
 
 .opacity-0 {
@@ -70,10 +103,30 @@ section.visible {
 }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem !important; /* زودنا المسافة شوية */
+  position: relative;
+}
+.intro-text,
+.value-description {
+  text-align: justify;     
+  direction: rtl;           
+  line-height: 1.5;         
+  margin-bottom: 1rem;    
+  font-size: 0.9rem !important;        
+  color: #333;               
+}
+.staggered-item{
+  text-align: justify;     
+  direction: rtl;          
+  line-height: 1.5;         
+  margin-bottom: 1rem;     
+  font-size: 0.8rem !important;       
+  color: #333;              
+}
+
+
         .section-subtitle {
             font-size: 1.1rem;
             color: #6b7280;
@@ -114,7 +167,7 @@ section.visible {
             color: #0ea9b6;
         }
         #stats{
-            background-color: rgb(53, 52, 52);
+            background-color: #353434;
         }
         #donate{
             background-color: rgb(53, 52, 52);
@@ -135,13 +188,20 @@ section.visible {
 }
 #navbar .nav-link {
   color: rgb(255, 255, 255);
+        
 }
 #mobile-menu{
     color: #ffffff;
+      background: rgb(53, 52, 52);
 }
 #navbar2{
     background: rgb(26, 143, 151);
 }
+.no-scroll {
+  overflow: hidden;
+  height: 100vh; /* عشان يثبت الطول */
+}
+
 /* بعد الاسكرول */
 #navbar.scrolled {
   background: rgb(53, 52, 52);
@@ -157,6 +217,7 @@ section.visible {
 }
 #navbar.scrolled #mobile-menu-button {
   color: #ffffff;
+  
 }
 .section-title {
       font-size: 2rem;
@@ -342,8 +403,109 @@ footer h3 {
 /* تغيير اللون عند المرور بالماوس */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #14a6c0 !important; /* أصفر */
+  color: #89fced !important; /* أصفر */
 }
 
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease forwards;
+}
+
+
+
+.value-card {
+  background: rgba(255, 255, 255, 0.226) !important;
+}
+
+
+
+.staggered-item {
+  background: rgba(255, 255, 255, 0.226) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Swiper Navigation Styles */
+.swiper-button-next,
+.swiper-button-prev {
+    /* لون الخلفية يصبح أبيض */
+    background-color: #ffffff !important;
+    
+    /* لون السهم يصبح أزرق ليبرز على الخلفية البيضاء */
+    color: #0ea9b6 !important; 
+    
+    /* إضافة ظل خفيف لإبراز الدائرة */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    border-radius: 50%;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* تعديل الظل عند التحويم */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* تعديل حجم أيقونة السهم */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+/* التعديل لجعلهما فوق بعض */
+.swiper-button-next,
+.swiper-button-prev {
+    /* يجعل الموضع مطلقاً بالنسبة للعنصر الأب (swiper) */
+    position: absolute; 
+    
+    /* يضع السهمين في المنتصف الأفقي */
+    left: 50% !important;
+    transform: translateX(-50%);
+
+    /* يجعل السهمين يظهران فوق المحتوى */
+    z-index: 10;
+}
+
+/* تعديل موضع السهمين عمودياً ليكون فوق بعض */
+.swiper-button-next {
+    top: 50% !important; /* يضع السهم في منتصف السلايدر */
+    margin-top: -30px; /* تحريكه للأعلى قليلاً */
+    margin-left: -700px;
+}
+
+.swiper-button-prev {
+    top: 50% !important; /* يضع السهم في منتصف السلايدر */
+    margin-top: 30px; /* تحريكه للأسفل قليلاً */
+}
+
+@media (max-width: 576px){
+  .swiper-button-next {
+    margin-top: -30px; /* تحريكه للأعلى قليلاً */
+    margin-left: -130px;
+}
+#campaigns .swiper-button-next
+,#contact .swiper-button-next{
+      margin-top: -100px; /* تحريكه للأعلى قليلاً */
+
+}
+#campaigns .swiper-button-prev
+,#contact .swiper-button-prev {
+      margin-top: -100px; /* تحريكه للأعلى قليلاً */
+
+}
+.swiper-button-prev {
+    margin-top: 30px; /* تحريكه للأسفل قليلاً */
+}
+}
 
 

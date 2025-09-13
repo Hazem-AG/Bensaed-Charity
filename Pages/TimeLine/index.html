@@ -1,0 +1,406 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Android -->
+    <meta name="theme-color" content="#0ea9b6">
+    <!--  iOS  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="icon" type="image/png" sizes="16x16" href="../../src/Logo/favicon/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../src/Logo/favicon/32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../../src/Logo/favicon/48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../src/Logo/favicon/64.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../src/Logo/favicon/96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../src/Logo/favicon/128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../src/Logo/favicon/192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="../../src/Logo/favicon/256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../src/Logo/favicon/512.png">
+    
+    <!-- ================== Fonts ================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- ================== Custom CSS ================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="../../Style/Style.css">
+              <link rel="stylesheet" href="./TimeLine.css">
+
+    <!-- ================== CSS Libraries ================== -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ================== JS Libraries ================== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ================== Developer Info ================== -->
+    <!-- 
+        Project: Bensaid Charitable Foundation
+        Developed by: Hazem Abdel Gawad Mohamed Emara
+        © 2025
+    -->
+    <title>Timeline المؤسسة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-white text-gray-800">
+    <!-- 01 - HEADER -->
+        <header id="header" class="fixed w-full bg-[#353434] top-0 z-50  overflow-hidden">
+  <!-- DECORATIVE LINE -->
+<div class="h-5 hidden lg:block" style="background-color: #0ea9b6;"></div>
+  <!-- NAVBAR -->
+  <nav id="navbar" class="w-full transition-all duration-500 bg-white/80 bg-white/0 shadow-md">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between w-full">
+  <!-- ICONS -->
+  <div class="hidden lg:flex items-center space-x-3 rtl:space-x-reverse ml-16">
+  <a href="https://www.facebook.com/bans3edeg" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+   <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+  </a>
+  <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+   <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+  </a>
+  <a href="https://wa.me/201009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+    </svg>
+  </a>
+  </div>
+<!-- LOGO -->
+      <a href="../../index.html" class="flex items-center shrink-0">
+        <img src="../../src/Logo/logo2.svg" alt="شعار مؤسسة بنساعد" class="max-h-[80px] w-auto z-40 object-contain">
+      </a>
+<!-- MENU -->
+      <div class="hidden lg:flex flex-1 justify-center space-x-8 rtl:space-x-reverse font-semibold text-gray-700 transition-colors">
+        <a href="../../index.html#about" class="nav-link hover:text-primary">عن المؤسسة</a>
+        <a href="../../index.html#achievements" class="nav-link hover:text-primary">الإنجازات</a>
+        <a href="../../index.html#campaigns" class="nav-link hover:text-primary">الحملات</a>
+        <a href="../../index.html#projects" class="nav-link hover:text-primary">المشاريع</a>
+        <a href="../../index.html#stats" class="nav-link hover:text-primary">الإحصائيات</a>
+        <a href="../../index.html#team" class="nav-link hover:text-primary">فريقنا</a>
+        <a href="../../index.html#contact" class="nav-link hover:text-primary">تواصل معنا</a>
+      </div>
+<!-- DONATION BUTTON -->
+  <a href="../../Files/Company Profile.pdf" download
+   class="hidden lg:inline-flex items-center justify-center bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition-all mx-auto gap-2">
+  <i data-lucide="download" class="w-5 h-5"></i>
+  <span>مجالاتنا وحالاتنا</span>
+</a>
+
+
+
+<!-- MOBILE MENU BUTTON -->
+      <button id="mobile-menu-button" class="lg:hidden  z-40  text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-20 flex flex-col justify-center items-center space-y-6 bg-gray-800 text-white">
+  <a href="../../index.html#about" class="text-xl font-medium hover:text-primary transition">عن المؤسسة</a>
+  <a href="../../index.html#achievements" class="text-xl font-medium hover:text-primary transition">الإنجازات</a>
+  <a href="../../index.html#campaigns" class="text-xl font-medium hover:text-primary transition">الحملات</a>
+  <a href="../../index.html#projects" class="text-xl font-medium hover:text-primary transition">المشاريع</a>
+  <a href="../../index.html#stats" class="text-xl font-medium hover:text-primary transition">الإحصائيات</a>
+  <a href="../../index.html#team" class="text-xl font-medium hover:text-primary transition">فريقنا</a>
+  <a href="../../index.html#contact" class="text-xl font-medium hover:text-primary transition">تواصل معنا</a>
+  <a href="../../Files/Company Profile.pdf" download
+   class="border-2 border-primary text-primary text-center px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition flex items-center gap-2 justify-center">
+  <span>قصة المؤسسة</span>
+  <i data-lucide="download"></i>
+</a>
+
+
+  <!-- ICONS -->
+  <div class="flex items-center space-x-3 rtl:space-x-reverse mt-4">
+    <a href="https://www.facebook.com/bans3edeg" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://wa.me/01009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+  </nav>
+        </header>
+        <main class="pt-20">
+    <div class="container mx-auto p-8 max-w-7xl">
+        <!-- Hero Section -->
+        <header class="text-center py-16 px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#0baab6] mb-4">
+                قصة مؤسستنا
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+                منذ انطلاقنا في عام 2019. ونحن نكتب فصولاً جديدة من النجاح والإنجاز. هذه رحلتنا الملهمة، لحظة بلحظة، سنة بسنة.
+            </p>
+        </header>
+
+        <!-- Timeline Section -->
+        <div class="timeline-container relative pt-12 md:pt-16">
+
+            <!-- 2017 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">الفكرة </h3>
+                        </div>
+                        <img src="./src/2017.png" alt="صورة توضيحية لعام 2017" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            بدأت مؤسسة "بنساعد" في عام 2017 كرؤية لمؤسسها، حيث استمرت الفكرة في النمو بدعم من أعضاء مجلس الأمناء. لم تكن هناك أنشطة رسمية في هذا العام، لكن كانت البذور الأولى لعمل الخير تزرع في العقول والقلوب.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2017</div>
+            </div>
+
+            <!-- 2018 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">مرحلة الإعداد والتخطيط  </h3>
+                        </div>
+                        <img src="./src/2018.png" alt="صورة توضيحية لعام 2018" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            عام 2018 كان بمثابة مرحلة تحضيرية للعمل التطوعي. كان مجلس الأمناء والمتطوعون يعملون معاً بشكل تطوعي لإنشاء منظمة خيرية تهدف إلى دعم وتحسين حياة الأفراد. كانت هذه المرحلة هادئة لكنها أساسية لبناء الهيكل الذي سيمكنهم من تحقيق أهدافهم في المستقبل.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2018</div>
+            </div>
+            
+            <!-- 2019 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">التوسع والانتشار</h3>
+                        </div>
+                        <img src="./src/2019.png" alt="صورة توضيحية لعام 2019" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                           في عام 2019، شهدت "بنساعد" لحظة حاسمة بتأسيسها الرسمي. قُيدت المؤسسة تحت رقم 2535 لسنة 2019 بهدف أساسي وهو توفير الاحتياجات الأساسية للمحتاجين، ومساعدتهم على تحسين حياتهم، وتوفير حياة كريمة لهم. كما هدفت إلى غرس روح العطاء في الشباب. 
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2019</div>
+            </div>
+
+            <!-- 2020 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">الانطلاقة الرسمية </h3>
+                        </div>
+                        <img src="./src/2020.png" alt="صورة توضيحية لعام 2020" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            بدأت "بنساعد" في هذا العام بتقديم مختلف أشكال المساعدة، سواء بالجهد أو بالمال، دون أي انتماءات سياسية أو دينية أو حزبية. وشملت الأنشطة تقديم مساعدات مادية وعينية للمستحقين مثل الأيتام والغارمين ، وتنفيذ مشروعات إنتاجية لمساعدة الأسر على تحقيق الاكتفاء الذاتي.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2020</div>
+            </div>
+
+            <!-- 2021 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">بناء جسور العطاء  </h3>
+                        </div>
+                        <img src="./src/2021.png" alt="صورة توضيحية لعام 2021" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            في عام 2021، واصلت المؤسسة توسعها في مشروعاتها الخيرية. قامت بحملات "شتاء دافئ" بتوزيع البطانيات والكسوة الشتوية، وبناء أسقف للمنازل. كما ركزت على مشاريع التنمية الاقتصادية مثل إقامة ورش حرفية لتشغيل الخريجين ، وإنشاء مشروعات للثروة الحيوانية.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2021</div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">التوسع في المشروعات </h3>
+                        </div>
+                        <img src="./src/2022.png" alt="صورة توضيحية لعام 2022" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            وصلت إنجازات "بنساعد" في هذا العام إلى أرقام ملحوظة. فوفقًا للملف، كان لديها أكثر من 1,450 متبرع وأكثر من 700 متطوع. كما وصلت التبرعات إلى أكثر من 4.5 مليون جنيه. نفذت المؤسسة حملات علاجية، مثل توفير الأطراف الصناعية والأدوية للمحتاجين.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2022</div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]"> تحقيق الإنجازات </h3>
+                        </div>
+                        <img src="./src/2023.png" alt="صورة توضيحية لعام 2023" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            بالإضافة إلى المساعدات المادية، ركزت "بنساعد" على الأنشطة الثقافية والتطوعية. عملت المؤسسة على غرس حب العمل التطوعي لدى الشباب والأطفال منذ الصغر، بهدف إعداد جيل من الكوادر القادرة على خدمة المجتمع
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2023</div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]">ترسيخ الثقافة التطوعية </h3>
+                        </div>
+                        <img src="./src/2024.png" alt="صورة توضيحية لعام 2024" class="w-full h-auto rounded-lg mb-4">
+                        <p class="text-gray-700 leading-relaxed">                 
+                        
+تطلعت "بنساعد" في هذا العام إلى مجالات أوسع من المساعدة. تضمنت أهدافها الدائمة تنمية موارد المؤسسة، وفتح آفاق جديدة مثل خدمات الرعاية الصحية وتوفير مياه شرب نقية. بدأت المؤسسة في التخطيط لمشاريع أكبر وأكثر استدامة.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2024</div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="timeline-item">
+                <div class="content-wrapper">
+                    <div class="w-full bg-gray-100 p-6 rounded-xl shadow-lg transition-all duration-300 card-hover">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-3xl font-bold text-[#0baab6]"> توسيع الأفق نحو أهداف جديدة </h3>
+                        </div>
+                        <img src="./src/2025.png" alt="صورة توضيحية لعام 2025" class="w-full h-auto rounded-lg mb-4">
+                       <p class="text-gray-700 leading-relaxed">                 
+                        
+                            عام 2025 يمثل استكمالاً لرحلة المؤسسة نحو بناء مجتمع منتج خالٍ من البطالة والأمية. تهدف المؤسسة إلى أن يتمتع كل فرد بامتياز الوصول إلى الرعاية الصحية والتعليم والخدمات الأساسية. رحلة "بنساعد" مستمرة، وتتطلع إلى مواصلة إحداث فرق دائم في حياة المحتاجين.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="year-circle">2025</div>
+            </div>
+        </div>
+    </div>
+</main>    
+
+    <!-- 15 - FOOTER -->
+       <footer class="bg-[#353434] backdrop-blur-lg text-white shadow-lg ">
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-4 gap-14 text-center md:text-right">
+      <!-- logo + description + social icons -->
+<div class="flex flex-col items-center text-center">
+  <!-- اللوجو -->
+  <a href="#" class="mb-4">
+    <img src="../../src/Logo/logo3.svg" alt="شعار مؤسسة بنساعد" class="h-[160px] w-auto object-contain">
+  </a>
+
+  <!-- النص -->
+  <p class="text-gray-300 font-bold text-sm max-w-xs">
+    نعمل بشغف لتحقيق التنمية المستدامة وتمكين كل فرد في مجتمعنا. شكرًا لكونك جزءًا من رحلتنا.
+  </p>
+
+  <!-- الأيقونات الاجتماعية -->
+  <div class="flex items-center justify-center space-x-3 rtl:space-x-reverse mt-3">
+    <a href="https://www.facebook.com/bans3edeg" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://www.instagram.com/bans3ed_eg?igsh=eG04Nmo1dWgzcWJ5" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <i data-lucide="instagram" class="w-5 h-5 text-white"></i>
+    </a>
+    <a href="https://wa.me/201009640501" target="_blank" class="bg-[#0ea9b6] p-2 rounded-md hover:opacity-90 transition w-10 h-10 flex items-center justify-center mx-auto">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.52 3.48A11.85 11.85 0 0012 0C5.37 0 0 5.37 0 12c0 2.12.55 4.13 1.6 5.88L0 24l6.33-1.62A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zm-8.52 17.26a9.75 9.75 0 01-5.08-1.5l-.36-.22-3.77.96.99-3.66-.23-.38a9.75 9.75 0 1111.45 4.8zm5.05-7.24c-.28-.14-1.64-.81-1.9-.91-.25-.1-.43-.14-.61.14-.18.28-.7.91-.86 1.1-.16.18-.32.2-.59.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.65-1.55-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.47.1-.18.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01s-.49.07-.74.35c-.25.28-.95.93-.95 2.28 0 1.35.98 2.66 1.12 2.85.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.32.23-.66.23-1.22.16-1.33-.07-.1-.25-.16-.53-.3z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+      <!-- links -->
+      <div class="flex flex-col items-center md:items-start">
+        <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                        <span class="block w-10 h-0.5 bg-[#0ea9b6] mt-2 mb-4"></span>
+        <ul class="space-y-2 text-[#89fced]">
+          <li><a href="../../index.html#about" class="hover:hover:text-white transition hover:text-white">عن المؤسسة</a></li>
+          <li><a href="../../index.html#achievements" class="hover:hover:text-white transition hover:text-white">الإنجازات</a></li>
+          <li><a href="../../index.html#campaigns" class="hover:hover:text-white transition hover:text-white">الحملات</a></li>
+          <li><a href="../../index.html#contact" class="hover:hover:text-white transition hover:text-white">تواصل معنا</a></li>
+        </ul>
+      </div>
+
+      <!-- services -->
+      <div class="flex flex-col items-center md:items-start">
+        <h3 class="text-xl font-bold mb-4">خدماتنا</h3>
+                <span class="block w-10 h-0.5 bg-[#0ea9b6] mt-2 mb-4"></span>
+        <ul class="space-y-2 font-bold text-[#89fced]">
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مساعدات مالية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مساعدات علاجية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">مشروعات البنية التحتية</a></li>
+          <li><a href="#" class="hover:hover:text-white transition hover:text-white">تجهيز الأسر والفتيات</a></li>
+        </ul>
+      </div>
+
+      <!-- social -->
+      <div class="flex flex-col items-center md:items-start">
+        <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+        <ul class="space-y-3 text-gray-300">
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="phone" class="w-5 h-5 mr-2 rtl:ml-2"></i> 01009640501 - 0242159007
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="mail" class="w-5 h-5 mr-2 rtl:ml-2"></i> info@bensaed.com
+          </li>
+          <li class="flex items-center justify-center md:justify-start">
+            <i data-lucide="map-pin" class="w-5 h-5 mr-2 rtl:ml-2"></i>
+            <a href="https://maps.app.goo.gl/j4BtzxA5rnv9vZB78" target="_blank" class="hover:text-[#0ea9b6] transition">
+              ٨ شارع محمد احمد الشوربي - ارض الجمعية - قليوب البد 13613
+            </a>
+          </li>
+        </ul>
+
+        
+      </div>
+    </div>
+
+    <!-- حقوق النشر -->
+    <div class="mt-12 pt-8 border-t border-white/20 text-center space-y-1">
+      <p class="text-ui-light-shade-color" style="color:var(--ui-light-shade-color)">
+        Created by Hazem Emara &copy;
+      </p>
+    </div>
+  </div>
+       </footer>
+<script src="../../JS/JS01.js"></script>
+<script src="../../JS/JS03.js"></script>
+  <script src="./TimeLine.js"></script>
+<!-- ================== External JS Libraries ================== -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<!-- ================== ================== -->
+</body>
+</html>

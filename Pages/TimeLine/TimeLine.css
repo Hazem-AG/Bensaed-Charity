@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
+        body {
+background-image: url("//res2.weblium.site/res/62af7b435bb66a000dcacfd4/62b1e2de23121a000db10d9b_optimized_1920.webp");
+  background-repeat: repeat;   /* الصورة تتكرر */
+  background-size: 600px 600px;       /* حجمها الطبيعي */
+  background-position: top left;
+  background-color: #fff;            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+
+main {
+    padding-top: 120px !important; /* This value should match the header's height */
+}
+        .timeline-container {
+            position: relative;
+        }
+
+        /* The vertical line for the timeline */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            transform: translateX(-50%);
+        }
+
+        /* The timeline item, starting hidden */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            position: relative;
+            margin-bottom: 4rem;
+            text-align: justify;     
+  direction: rtl;          
+  line-height: 1.5;         
+  color: #333;      
+        }
+
+        /* When the timeline item is in view */
+        .timeline-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Year circle style */
+        .year-circle {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0baab6;
+            color: white;
+            border-radius: 9999px;
+            border: 4px solid white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+        
+        /* Card hover effect */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Desktop specific styles for the timeline */
+        @media (min-width: 768px) {
+            .timeline-item {
+                display: flex;
+                align-items: center;
+            }
+            .timeline-item:nth-child(odd) {
+                justify-content: flex-start;
+            }
+            .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+            }
+            .timeline-item:nth-child(odd) .year-circle {
+                position: absolute;
+                left: 50%;
+                margin-left: -50px;
+            }
+            .timeline-item:nth-child(even) .year-circle {
+                position: absolute;
+                right: 50%;
+                margin-right: -50px;
+            }
+            .timeline-item:nth-child(odd) .content-wrapper {
+                width: 50%;
+                padding-right: 7rem;
+            }
+            .timeline-item:nth-child(even) .content-wrapper {
+                width: 50%;
+                padding-left: 7rem;
+            }
+        }
+        
+        /* Mobile specific styles for the timeline */
+        @media (max-width: 767px) {
+            .timeline-container::before {
+                right: 2rem;
+                left: auto;
+                transform: none;
+            }
+            .timeline-item  {
+                position: relative;
+                margin-bottom: 2rem;
+                display: flex;
+                align-items: center;
+                text-align: justify;     
+  direction: rtl;          
+  line-height: 1.5;         
+  margin-bottom: 1rem;     
+  font-size: 0.8rem !important;       
+  color: #333;      
+            }
+            .timeline-item h3 {
+                font-size: large;
+                text-align: right;     
+            }
+            .year-circle {
+                position: absolute;
+                right: 2rem;
+                transform: translateX(50%);
+                z-index: 10;
+            }
+            .content-wrapper {
+                width: 100%;
+                margin-right: 6rem;
+            }
+        }
