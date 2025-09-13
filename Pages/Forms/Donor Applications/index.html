@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Android -->
+    <meta name="theme-color" content="#0ea9b6">
+    <!--  iOS  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>استمارة التقديم على الوظائف - مؤسسة بنساعد</title>
+  <meta name="description" content="قدم طلبك للانضمام إلى فريق مؤسسة بنساعد للأعمال الخيرية. استمارة تقديم سهلة وآمنة للوظائف المتاحة.">
+  <link rel="stylesheet" href="Style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/lucide.min.css">
+  
+  <!-- SweetAlert2 for better alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+   <link rel="icon" type="image/png" sizes="16x16" href="../../src/Logo/favicon/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../src/Logo/favicon/32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../../../src/Logo/favicon/48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../../src/Logo/favicon/64.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../../src/Logo/favicon/96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../../src/Logo/favicon/128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../src/Logo/favicon/192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="../../../src/Logo/favicon/256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../src/Logo/favicon/512.png">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+      <p>جاري تحميل الاستمارة...</p>
+    </div>
+  </div>
+
+  <!-- Progress Indicator -->
+  <div class="progress-container">
+    <div class="progress-bar" id="formProgress"></div>
+  </div>
+
+  <div class="container enhanced-container">
+    <div class="card enhanced-card">
+      <!-- Header -->
+      <header class="header enhanced-header">
+        <div class="header-background">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="header-content">
+          <div class="logo-container">
+            <a href="../../../index.html">
+            <div class="logo enhanced-logo">
+              <img src="./scr/LOGO.svg" alt="Logo" style="width: 90px; height: 90px;">
+            </div>
+              </a>
+            <div class="institution-info">
+              <h1 class="institution-name">مؤسسة بنساعد</h1>
+              <p class="institution-subtitle">مؤسسة بنساعد للأعمال الخيريه المشهر برقم 2539 سنة 2019</p>
+            </div>
+          </div>
+          <div class="form-title-container">
+            <h2 class="form-title">استمارة تسجيل للمتبرع</h2>
+            <p class="form-subtitle">شكرًا لرغبتكم في دعم أنشطتنا الخيرية، نرجو إدخال بياناتكم لإتمام التسجيل كمتبرع.</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="form-content">
+        <form id="jobForm" novalidate>
+          <!-- Personal Information -->
+          <section class="form-section enhanced-section active" id="personalSection">
+            <div class="section-header">
+              <div class="section-icon">
+                <i data-lucide="user"></i>
+              </div>
+              <h3 class="section-title">البيانات الشخصية</h3>
+              <span class="section-step">1/2</span>
+            </div>
+            
+            <div class="grid grid-cols-2">
+              <div class="form-group enhanced-form-group">
+                <label for="fullname" class="form-label">
+                  <i data-lucide="user"></i>
+                  الاسم الثلاثي <span class="required">*</span>
+                </label>
+                <input type="text" id="fullname" name="fullname" placeholder="أدخل الاسم الثلاثي" class="form-input" required>
+                <div class="error-message" id="fullname-error">يرجى إدخال الاسم الثلاثي</div>
+              </div>
+              
+              <div class="form-group enhanced-form-group">
+                <label for="phone" class="form-label">
+                  <i data-lucide="phone"></i>
+                  رقم التليفون <span class="required">*</span>
+                </label>
+                <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف للتواصل" class="form-input" required>
+                <div class="error-message" id="phone-error">يرجى إدخال رقم الهاتف</div>
+              </div>
+              
+               
+              
+    
+            </div>
+
+            <div class="section-navigation">
+              <button type="button" class="btn btn-next" data-next="interestsSection">
+                التالي <i data-lucide="arrow-left"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- Donor Interests -->
+          <section class="form-section enhanced-section hidden" id="interestsSection">
+  <div class="section-header">
+    <div class="section-icon">
+      <i data-lucide="heart"></i>
+    </div>
+    <h3 class="section-title">حدد المجالات التي تهمك</h3>
+    <span class="section-step">2/2</span>
+  </div>
+
+  <div class="form-group enhanced-form-group">
+    <label class="form-label">
+      <i data-lucide="heart"></i>
+      يرجى اختيار المجالات التي تود توجيه دعمك إليها <span class="required">*</span>
+    </label>
+
+    <div class="interests-grid">
+      <label class="interest-option">
+        <input type="checkbox" name="interests[]" value="التعليم والتدريب">
+        <div class="option-content">
+          <i data-lucide="book-open"></i>
+          <h4>التعليم</h4>
+          <p>توفير منح دراسية وبناء المدارس</p>
+        </div>
+      </label>
+
+      <label class="interest-option">
+        <input type="checkbox" name="interests[]" value="الصحة والرعاية">
+        <div class="option-content">
+          <i data-lucide="stethoscope"></i>
+          <h4>الصحة</h4>
+          <p>مشاريع علاجية وحملات وقائية</p>
+        </div>
+      </label>
+
+      <label class="interest-option">
+        <input type="checkbox" name="interests[]" value="كفالة الأيتام">
+        <div class="option-content">
+          <i data-lucide="user-plus"></i>
+          <h4>كفالة الأيتام</h4>
+          <p>توفير الدعم المالي والتعليمي لهم</p>
+        </div>
+      </label>
+
+      <label class="interest-option">
+        <input type="checkbox" name="interests[]" value="الغذاء والإغاثة">
+        <div class="option-content">
+          <i data-lucide="utensils"></i>
+          <h4>الغذاء</h4>
+          <p>توفير الغذاء والمساعدات العاجلة</p>
+        </div>
+      </label>
+      
+      <label class="interest-option">
+        <input type="checkbox" name="interests[]" value="بناء المساجد">
+        <div class="option-content">
+          <i data-lucide="landmark"></i>
+          <h4>بناء المساجد</h4>
+          <p>بناء وصيانة دور العبادة</p>
+        </div>
+      </label>
+
+      <label class="interest-option" id="otherInterestOption">
+        <input type="checkbox" name="interests[]" value="other">
+        <div class="option-content">
+          <i data-lucide="edit"></i>
+          <h4>مجال آخر</h4>
+          <p>أذكر اهتمامك الخاص</p>
+        </div>
+      </label>
+
+    </div>
+    
+    <div class="error-message" id="interests-error">يرجى اختيار مجال واحد على الأقل.</div>
+  </div>
+
+  <div class="form-group enhanced-form-group hidden" id="otherInterestSection">
+    <label for="other_interest" class="form-label">
+      <i data-lucide="edit"></i>
+      اكتب اهتمامك الآخر هنا
+    </label>
+    <input type="text" id="other_interest" name="other_interest" placeholder="مثال: التمكين الاقتصادي" class="form-input">
+  </div>
+
+  <div class="section-navigation">
+    <button type="button" class="btn btn-outline btn-prev" data-prev="personalSection">
+      <i data-lucide="arrow-right"></i> السابق
+    </button>
+  </div>
+</section>
+
+          <!-- Form Actions -->
+          <div class="form-actions enhanced-actions">
+            <button type="button" class="btn btn-outline" id="resetBtn">
+              <i data-lucide="trash-2"></i>
+              مسح النموذج
+            </button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <i data-lucide="send"></i>
+              إرسال الطلب
+            </button>
+          </div>
+        </form>
+      </main>
+      
+      <!-- Footer -->
+      <footer class="footer enhanced-footer">
+        <p style="margin-top: 0.5rem;">للاستفسار: <a href="tel:+201009640501">+201009640501</a> | <a href="mailto:bensaed.charity.2019@gmail.com">info@bensaed.com</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <button class="fab" id="helpFab">
+    <i data-lucide="help-circle"></i>
+  </button>
+
+  <!-- Help Modal -->
+  <div class="modal" id="helpModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>مساعدة</h3>
+        <button class="modal-close" id="closeModal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>إذا كنت بحاجة إلى مساعدة في تعبئة الاستمارة، يرجى التواصل معنا عبر:</p>
+        <ul>
+          <li><i data-lucide="phone"></i> الهاتف: <a href="tel:+201009640501">01009640501</a></li>
+          <li><i data-lucide="mail"></i> البريد الإلكتروني: <a href="mailto:bensaed.charity.2019@gmail.com">info@bensaed.com</a></li>
+        </ul>
+        <p>ساعات العمل: من السبت إلى الخميس، من 10 صباحاً إلى 6 مساءً</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="JS.js"></script>
+</body>
+</html>

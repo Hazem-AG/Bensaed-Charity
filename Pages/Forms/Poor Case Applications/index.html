@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Android -->
+    <meta name="theme-color" content="#0ea9b6">
+    <!--  iOS  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>استمارة التقديم على الوظائف - مؤسسة بنساعد</title>
+  <meta name="description" content="قدم طلبك للانضمام إلى فريق مؤسسة بنساعد للأعمال الخيرية. استمارة تقديم سهلة وآمنة للوظائف المتاحة.">
+  <link rel="stylesheet" href="Style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/lucide.min.css">
+  
+  <!-- SweetAlert2 for better alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="../../src/Logo/favicon/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../src/Logo/favicon/32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../../../src/Logo/favicon/48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../../src/Logo/favicon/64.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../../src/Logo/favicon/96.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="../../../src/Logo/favicon/128.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../src/Logo/favicon/192.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="../../../src/Logo/favicon/256.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../../src/Logo/favicon/512.png">
+</head>
+<body class="bg-gray-100">
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>جاري تحميل الاستمارة...</p>
+    </div>
+</div>
+
+<div class="container fade-in">
+    <div class="card">
+        <header class="header">
+            <div class="header-background">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="header-content">
+              <div class="logo-container">
+            <a href="../../../index.html">
+            <div class="logo enhanced-logo">
+              <img src="./scr/LOGO.svg" alt="Logo" style="width: 90px; height: 90px;">
+            </div>
+              </a>
+            <div class="institution-info">
+              <h1 class="institution-name">مؤسسة بنساعد</h1>
+              <p class="institution-subtitle">مؤسسة بنساعد للأعمال الخيريه المشهر برقم 2539 سنة 2019</p>
+            </div>
+          </div>
+                <h1 class="text-3xl font-bold mb-2">استمارة تسجيل حالة</h1>
+            </div>
+        </header>
+
+        <main class="form-content">
+            <div id="conditions-alert" class="alert-danger mb-8">
+                <p><strong>شروط قبول الحالة:</strong></p>
+                <p>أن تكون أرملة أو مطلقة أو أيتام، وفي حالة كونها متزوجة يجب ذكر سبب قوي يوضح عدم قدرة الزوج على الإنفاق.</p>
+            </div>
+
+            <form id="caseForm">
+                <!-- Main Question Section -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i data-lucide="help-circle"></i>
+                        </div>
+                        <h3 class="section-title">بيانات التسجيل</h3>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="registrantType">
+                            <i data-lucide="user-check"></i>
+                            مين اللي بيسجل الحالة؟
+                        </label>
+                        <select id="registrantType" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="case">الحالة نفسها</option>
+                            <option value="benefactor">فاعل خير</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Case-specific fields -->
+                <section id="caseFields" class="form-section hidden">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <h3 class="section-title">بيانات الحالة</h3>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="caseName">
+                            <i data-lucide="signature"></i>
+                            اسم الحالة <span class="required">*</span>
+                        </label>
+                        <input type="text" id="caseName" name="caseName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="caseAge">
+                            <i data-lucide="calendar-days"></i>
+                            سن الحالة <span class="required">*</span>
+                        </label>
+                        <input type="number" id="caseAge" name="caseAge" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="caseNationalId">
+                            <i data-lucide="scan"></i>
+                            الرقم القومي للحالة <span class="required">*</span>
+                        </label>
+                        <input type="text" id="caseNationalId" name="caseNationalId" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="casePhone">
+                            <i data-lucide="phone"></i>
+                            رقم التليفون للتواصل <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="casePhone" name="casePhone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="caseAddress">
+                            <i data-lucide="map-pin"></i>
+                            العنوان بالتفصيل <span class="required">*</span>
+                        </label>
+                        <textarea id="caseAddress" name="caseAddress" class="form-textarea" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="maritalStatus">
+                            <i data-lucide="heart"></i>
+                            الحالة الاجتماعية <span class="required">*</span>
+                        </label>
+                        <select id="maritalStatus" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="متزوجة">متزوجة</option>
+                            <option value="مطلقة">مطلقة</option>
+                            <option value="أرملة">أرملة</option>
+                            <option value="أعزب">أعزب</option>
+                        </select>
+                    </div>
+                    <div id="marriedReasonSection" class="form-group hidden">
+                        <label class="form-label" for="marriedReason">
+                            <i data-lucide="alert-triangle"></i>
+                            سبب عدم قدرة الزوج على الإنفاق <span class="required">*</span>
+                        </label>
+                        <textarea id="marriedReason" name="marriedReason" class="form-textarea" rows="3"></textarea>
+                        <p class="text-sm text-red-600 mt-1">تنبيه: سيتم تغيير اسم الحالة إلى اسم الزوج في حالة إدخال بيانات الزواج.</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="childCount">
+                            <i data-lucide="baby"></i>
+                            عدد الأطفال (حد أقصى 10)
+                        </label>
+                        <input type="number" id="childCount" name="childCount" class="form-input" min="0" max="10" value="0">
+                    </div>
+                    <div id="childrenDataSection" class="hidden">
+                        <!-- Children fields will be dynamically added here -->
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="familyIncome">
+                            <i data-lucide="wallet"></i>
+                            إجمالي دخل الأسرة بالتقريب <span class="required">*</span>
+                        </label>
+                        <input type="number" id="familyIncome" name="familyIncome" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="familyExpenses">
+                            <i data-lucide="credit-card"></i>
+                            إجمالي مصاريف الأسرة الشهرية بالتقريب <span class="required">*</span>
+                        </label>
+                        <input type="number" id="familyExpenses" name="familyExpenses" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="houseStatus">
+                            <i data-lucide="home"></i>
+                            حالة البيت <span class="required">*</span>
+                        </label>
+                        <select id="houseStatus" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="جيدة">جيدة</option>
+                            <option value="متوسطة">متوسطة</option>
+                            <option value="سيئة">سيئة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="isPatient">
+                            <i data-lucide="heart-pulse"></i>
+                            هل هناك مريض في الأسرة يحتاج علاج؟ <span class="required">*</span>
+                        </label>
+                        <select id="isPatient" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="نعم">نعم</option>
+                            <option value="لا">لا</option>
+                        </select>
+                    </div>
+                    <div id="patientInfoSection" class="form-group hidden">
+                        <label class="form-label" for="patientName">
+                            <i data-lucide="pill"></i>
+                            اسم المريض
+                        </label>
+                        <input type="text" id="patientName" name="patientName" class="form-input">
+                        <label class="form-label mt-4" for="patientType">
+                            <i data-lucide="medical-cross"></i>
+                            نوع المرض
+                        </label>
+                        <input type="text" id="patientType" name="patientType" class="form-input">
+                        <label class="form-label mt-4" for="patientRelation">
+                            <i data-lucide="users"></i>
+                            قرابته للحالة
+                        </label>
+                        <input type="text" id="patientRelation" name="patientRelation" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="hasGirlToPrepare">
+                            <i data-lucide="ring"></i>
+                            هل هناك بنت للتجهيز؟ <span class="required">*</span>
+                        </label>
+                        <select id="hasGirlToPrepare" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="نعم">نعم</option>
+                            <option value="لا">لا</option>
+                        </select>
+                        <p class="text-sm text-gray-500 mt-1">الشرط: أن تكون كاتبة كتابها.</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="caseRequests">
+                            <i data-lucide="list"></i>
+                            ماذا تطلب الأسرة؟ <span class="required">*</span>
+                        </label>
+                        <textarea id="caseRequests" name="caseRequests" class="form-textarea" rows="3" required></textarea>
+                    </div>
+                </section>
+
+                <!-- Benefactor-specific fields -->
+                <section id="benefactorFields" class="form-section hidden">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i data-lucide="hand-heart"></i>
+                        </div>
+                        <h3 class="section-title">بيانات فاعل خير</h3>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="benefactorName">
+                            <i data-lucide="signature"></i>
+                            اسم فاعل الخير <span class="required">*</span>
+                        </label>
+                        <input type="text" id="benefactorName" name="benefactorName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="benefactorPhone">
+                            <i data-lucide="phone"></i>
+                            رقم تليفون فاعل الخير <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="benefactorPhone" name="benefactorPhone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="beneficiaryName">
+                            <i data-lucide="user"></i>
+                            اسم الحالة <span class="required">*</span>
+                        </label>
+                        <input type="text" id="beneficiaryName" name="beneficiaryName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="beneficiaryAge">
+                            <i data-lucide="calendar-days"></i>
+                            سن الحالة <span class="required">*</span>
+                        </label>
+                        <input type="number" id="beneficiaryAge" name="beneficiaryAge" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="beneficiaryPhone">
+                            <i data-lucide="phone"></i>
+                            رقم تليفون الحالة <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="beneficiaryPhone" name="beneficiaryPhone" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="beneficiaryMaritalStatus">
+                            <i data-lucide="heart"></i>
+                            الحالة الاجتماعية <span class="required">*</span>
+                        </label>
+                        <select id="beneficiaryMaritalStatus" class="form-select" required>
+                            <option value="">-- اختر --</option>
+                            <option value="متزوجة">متزوجة</option>
+                            <option value="مطلقة">مطلقة</option>
+                            <option value="أرملة">أرملة</option>
+                            <option value="أعزب">أعزب</option>
+                        </select>
+                    </div>
+                    <div id="benefactorMarriedReasonSection" class="form-group hidden">
+                        <label class="form-label" for="benefactorMarriedReason">
+                            <i data-lucide="alert-triangle"></i>
+                            سبب عدم قدرة الزوج على الإنفاق <span class="required">*</span>
+                        </label>
+                        <textarea id="benefactorMarriedReason" name="benefactorMarriedReason" class="form-textarea" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="familyMembersCount">
+                            <i data-lucide="users"></i>
+                            عدد أفراد الأسرة <span class="required">*</span>
+                        </label>
+                        <input type="number" id="familyMembersCount" name="familyMembersCount" class="form-input" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="benefactorRequests">
+                            <i data-lucide="list"></i>
+                            احتياجات الأسرة <span class="required">*</span>
+                        </label>
+                        <textarea id="benefactorRequests" name="benefactorRequests" class="form-textarea" rows="3" required></textarea>
+                    </div>
+                </section>
+
+                <div id="submitSection" class="hidden form-actions">
+                    <button type="button" id="resetBtn" class="btn-outline">
+                        <i data-lucide="refresh-ccw"></i>
+                        مسح الاستمارة
+                    </button>
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <i data-lucide="send"></i>
+                        إرسال الاستمارة
+                    </button>
+                </div>
+            </form>
+        </main>
+        
+        <!-- Footer -->
+     <footer class="footer enhanced-footer">
+        <p style="margin-top: 0.5rem;">للاستفسار: <a href="tel:+201009640501">+201009640501</a> | <a href="mailto:info@bensaed.com">info@bensaed.com</a></p>
+      </footer>
+    </div>
+</div>
+
+<!-- Floating Action Button -->
+<button class="fab" id="helpFab">
+    <i data-lucide="help-circle"></i>
+</button>
+
+<!-- Help Modal -->
+<div class="modal" id="helpModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>مساعدة</h3>
+            <button class="modal-close" id="closeModal">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>إذا كنت بحاجة إلى مساعدة في تعبئة الاستمارة، يرجى التواصل معنا عبر:</p>
+            <ul>
+                <li><i data-lucide="phone"></i> الهاتف: <a href="tel:+201009640501">01009640501</a></li>
+                <li><i data-lucide="mail"></i> البريد الإلكتروني: <a href="mailto:info@bensaed.com">info@bensaed.com</a></li>
+            </ul>
+            <p>ساعات العمل: من السبت إلى الخميس، من 10 صباحاً إلى 6 مساءً</p>
+        </div>
+    </div>
+</div>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="JS.js"></script>
+</body>
+</html>
